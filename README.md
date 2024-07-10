@@ -16,12 +16,30 @@ Registro de Estudiantes: Permite registrar y gestionar la información de los es
 
 *Calendario Escolar:* Ofrece un calendario escolar interactivo con eventos importantes, como vacaciones, exámenes y actividades extracurriculares.<br>
 
-*Tecnologías Utilizadas*<br>
-El proyecto ha sido desarrollado utilizando las siguientes tecnologías:
+# Proyecto Colegio Luminova
 
-**HTML:** Para la estructura y contenido de las páginas web.<br>
-**CSS:** Para el diseño y la presentación visual de la aplicación.<br>
-**JavaScript**: Para la lógica de interacción y funcionalidades dinámicas en el lado del cliente.<br>
+Este proyecto es una aplicación web para la gestión de alumnos y cursos en el Instituto Luminova. Proporciona funcionalidades para la inscripción de alumnos en diversos cursos, administración de datos de estudiantes y gestión de inscripciones.
+
+## Tecnologías Utilizadas
+
+- **Node.js**: Backend de la aplicación.
+- **Express**: Framework web para Node.js utilizado en la creación de API RESTful.
+- **MySQL**: Base de datos relacional utilizada para almacenar datos de alumnos, cursos e inscripciones.
+- **HTML/CSS/JavaScript**: Frontend y lógica del lado del cliente.
+- **Bootstrap**: Framework de CSS para diseño responsive.
+- **Git**: Control de versiones para el desarrollo colaborativo.
+- **Postman**: Herramienta para probar y documentar API.
+
+
+## Instalación
+
+1. **Clona el repositorio:**
+
+   ```bash
+   git clone https://github.com/vilmaponce/colegio.git
+
+
+
 
 ***Autores***<br>
 ****[Vilma Ponce , Agustina Velazquez ,Andreina Romero, Eleonora Roux ]****
