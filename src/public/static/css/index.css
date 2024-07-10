@@ -1,0 +1,1562 @@
+/*
+Autores: Agustina Velazquez
+         Andreina Romero
+         Eleonora Roux
+         Vilma Ponce
+Fecha: 19/03/2024
+Curso: Full Stack NodeJS - Comision 24123
+Profesor: Fernando Lucena
+Descripcion: este archivo CSS contiene los estilos para el sitio web del Instituto Luminova
+*/
+
+/* Reglas universales */
+
+:root {
+    --color-primario: rgb(43, 139, 223);
+    --color-secundario: #e91e63;
+    --color-terciario: #303030;
+    --color-cuaternario: #f2f2f2;
+    --color-slide: rgba(255, 255, 255, 0.5);
+    --color-nav: #0B3D91;
+    --bg-oscuro: #171717;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 1em;
+    height: .5em;
+}
+
+/* Carril del scroll */
+::-webkit-scrollbar-track {
+    background-color: var(--color-terciario);
+}
+
+/* Almohadilla del scroll */
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-primario);
+    border-radius: 5em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Roboto Slab", serif;
+}
+
+body {
+    height: 100vh;
+    padding: 5.4em 0 0;
+    /*estos espacios hacen que no se superponga con el próximo bloque, asi queda flotando*/
+    background-color: var(--color-cuaternario);
+    font-family: "Nunito", sans-serif;
+}
+
+/* Comenza el alto de los nav bar al hacer direccionar con <a href=""> */
+section[id],
+article[id] {
+    scroll-margin-top: 14vh;
+    /* Mismo height que el header */
+}
+
+/************************* Navbar **************************/
+
+.header {
+    background-color: var(--color-nav);
+    height: 14vh;
+    /*altura fija de la barra de navegación*/
+    width: 100vw;
+    /*ancho, 100% de la pagina*/
+    position: fixed;
+    /*barra de navegación fija=fixed arriba, queda como flotando*/
+    top: 0;
+    /*siempre va a estar fijada a la ventana donde nos encontremos en la punta izquierda*/
+    left: 0;
+    z-index: 1;
+}
+
+.nav {
+    display: flex;
+    /*así hago que se separen los bloques del menu por un lado el logo y por el otro el menu*/
+    justify-content: space-between;
+    /*acá les digo que tengan espacio entre ellos*/
+    max-width: 1100px;
+    /*es un breakpoint para que no se alargue a toda la pantalla el menu y quede mas centrado en paginas anchas*/
+    margin: 0 auto;
+
+}
+
+/*estilos a todos los links*/
+.nav-link {
+    color: var(--color-cuaternario);
+    text-decoration: none;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+}
+
+.nav .nav-link img {
+    height: 10vh;
+    margin-top: 0.8rem;
+
+}
+
+/*formato del estilo de la caja del menu*/
+.nav-menu {
+    display: flex;
+    /*así hago todos los elementos del elemento del menú queden en fila, en forma horizontal por defecto*/
+    margin-right: 1rem;
+    list-style: none;
+    /*elimino los puntos de la lista*/
+
+}
+
+/*formato del estilo del link del menu*/
+.nav-menu-item {
+    font-size: 1rem;
+    line-height: 15vh;
+    text-transform: uppercase;
+    /*todo el texto en mayúscula*/
+    width: max-content;
+    /*para que no corte el texto de lo que tenga el link, porque si son dos palabras elimina una al achicarlo*/
+    margin: 0 .6rem;
+    /*el espacio entre cada palabra del menu*/
+}
+
+.nav-menu-link {
+    padding: .5rem .7rem;
+    transition: all .7s ease;
+}
+
+.nav-menu-item.dropdown {
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 80px;
+    background-color: var(--color-primario);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    min-width: 160px;
+    z-index: 1;
+    opacity: 0;
+    transition: all .7s ease;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
+    font-size: .8em;
+    color: var(--color-cuaternario);
+    height: 3em;
+    padding: 12px 16px;
+    line-height: 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all .3s ease;
+}
+
+.dropdown-content li a i {
+    margin-right: 5px;
+}
+
+.nav-menu-link:hover {
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: var(--color-primario);
+}
+
+.dropdown-content a:hover {
+    color: var(--color-nav);
+    font-weight: 700;
+}
+
+/*estilos del boton hamburguesa*/
+.nav-toggle {
+    color: var(--color-cuaternario);
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    padding: 0 1.2rem;
+    margin-right: .5em;
+    line-height: 10vh;
+    cursor: pointer;
+    display: none;
+    /*para que no se vea en dispositivios grandes*/
+}
+
+/************************* Banner **************************/
+.container-carousel {
+    background-color: #e0e0e0;
+    width: 100%;
+    height: 70vh;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    overflow: hidden;
+    /*recorta todo lo que sale del contenedor*/
+    position: relative;
+    /*asi le digo al padre que mantenga todo adentro*/
+}
+
+.carruseles {
+    width: 300%;
+    /*para que entren las tres imágenes*/
+    height: 100%;
+    display: flex;
+}
+
+.slide-banner {
+    width: calc(100% / 3);
+    /*tengo tres imagenes*/
+    height: 100%;
+
+}
+
+.slide-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*para que la ajuste bien*/
+    opacity: 0.8;
+}
+
+.btn-left,
+.btn-right {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--color-cuaternario);
+    transform: translate(0, -50%);
+    transition: 0.5s ease;
+    user-select: none;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+    background-color: var(--color-terciario);
+    color: var(--color-cuaternario);
+}
+
+
+.btn-right {
+    right: 2rem;
+}
+
+.btn-left {
+    left: 2rem;
+}
+
+.cuerpo-texto {
+    text-align: center;
+    padding: 10px 10px;
+    color: var(--color-nav);
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0;
+    background-color: var(--color-slide);
+    position: relative;
+    bottom: 15%;
+}
+
+/************************************* Novedades ************/
+#novedades {
+    width: 90vw;
+    margin: 3em auto;
+    padding: .5em;
+}
+
+.titulo {
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-secundario);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: self-start;
+    gap: 2em;
+    text-align: center;
+    padding: 1em;
+}
+
+/************************* carrusel Novedades **************************/
+.carousel {
+    position: relative;
+    width: 30vw;
+    height: 22em;
+    margin-top: 3em;
+    /* Oculta los slide que no deben mostrarse */
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slide {
+    position: absolute;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 1s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+/* Posicionamiento del texto sobre la imagen */
+.overlay {
+    position: absolute;
+    padding: 1em 3em;
+    text-align: center;
+    color: var(--color-cuaternario);
+}
+
+.overlay h2 {
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: .5em;
+    color: var(--color-cuaternario);
+}
+
+.overlay p {
+    font-weight: 700;
+    margin-bottom: 1.5em;
+}
+
+.slide:last-child .overlay p {
+    line-height: 1.5em;
+}
+
+.overlay a {
+    padding: .5em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-secundario);
+    background-color: #f2f2f2a9;
+    border-radius: .4em;
+}
+
+/************************* CALENDARIO **************************/
+.container_calendar {
+    width: 400px;
+    height: 550px;
+}
+
+.header_calendar {
+    width: 100%;
+    height: 45%;
+    background: linear-gradient(#2c2c2c, #1c1c1d);
+    border-radius: 15px 15px 0px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_calendar h1 {
+    margin: 30px 30px 0px 30px;
+    padding: 0px;
+    font-family: Arial;
+    color: var(--color-secundario);
+    font-size: 100px;
+}
+
+.header_calendar h5 {
+    margin: 0px 30px;
+    padding: 0px;
+    font-family: Arial;
+    color: var(--color-secundario);
+    font-size: 40px;
+}
+
+.body_calendar {
+    width: 100%;
+    height: 55%;
+    background: #30303038;
+    padding: 0 .5em;
+    border-radius: 0px 0px 15px 15px;
+}
+
+
+.container_details {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    top: -13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container_details .detail_1,
+.container_details .detail_2 {
+    width: 70px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container_details .detail_1 .detail,
+.container_details .detail_2 .detail {
+    margin: 0px 2px;
+    width: 10px;
+    height: 100%;
+
+}
+
+.container_details .detail_1 .detail .circle,
+.container_details .detail_2 .detail .circle {
+    width: 10px;
+    height: 10px;
+    background: #1C1E26;
+    position: relative;
+    top: calc(30px - 10px);
+    border-radius: 50%;
+}
+
+.container_details .detail_1 .detail .circle .column,
+.container_details .detail_2 .detail .circle .column {
+    width: 80%;
+    height: 30px;
+    background: #ececec;
+    margin: 0px auto;
+    position: relative;
+    top: -22px;
+    border-radius: 5px;
+}
+
+.container_change_month {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    opacity: 0.7;
+}
+
+.container_change_month div {
+    height: 20px;
+    margin: auto;
+}
+
+.container_change_month button {
+    font-size: 20px;
+    margin: auto 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.container_weedays {
+    width: 90%;
+    height: 40px;
+    display: flex;
+    margin: 0px auto;
+}
+
+.container_weedays span {
+    color: rgb(43, 139, 223);
+    height: 100%;
+    line-height: 2.5;
+}
+
+.week_days_item {
+    display: flex;
+    margin: auto;
+    width: calc(100% / 7);
+    justify-content: center;
+    cursor: pointer;
+}
+
+.week_days_item:hover {
+    color: rgb(43, 139, 223);
+}
+
+.prev_days {
+    opacity: 0.5;
+}
+
+.container_days {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0px auto;
+}
+
+.container_days span {
+    color: #4e4e4e;
+    height: 20px;
+    margin: 5px 0px;
+    padding: 0px;
+}
+
+.container_days .today {
+    display: flex;
+}
+
+.container_days .today:after {
+    content: "";
+    width: 19px;
+    height: 19px;
+    background: var(--color-secundario);
+    position: absolute;
+    border-radius: 50%;
+    border: 5px solid var(--color-secundario);
+    opacity: 0.6;
+    margin: -5px 0px 0px 1px;
+}
+
+/************************* Form de contacto Novedades **************************/
+h1 {
+    text-align: center;
+    margin-bottom: 7px;
+    color: var(--color-primario);
+    font-size: 25px;
+}
+
+form {
+    display: grid;
+    grid-gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: lightcoral;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-secundario);
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: lightcoral;
+}
+
+/************************* Sección de Tarjetas Niveles **************************/
+
+#institucional,
+#footer-content {
+    width: 100%;
+    background-color: var(--color-terciario);
+}
+
+.institutional-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
+    width: 100%;
+    margin: 0em auto;
+    padding: 5em 2em;
+    gap: 2em;
+}
+
+.levels-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 1em;
+    gap: 1em;
+
+    background-color: var(--color-cuaternario);
+    border-radius: 10px;
+}
+
+.levels-container img {
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+.initial-description,
+.primary-description,
+.secondary-description,
+.initial-proposals {
+    display: flex;
+    flex-flow: column nowrap;
+    text-align: center;
+}
+
+.initial-description h3,
+.secondary-description h3 {
+    text-transform: uppercase;
+    font-size: 2em;
+    color: var(--color-primario);
+}
+
+.primary-description h3,
+.title-secondary-mision {
+    text-transform: uppercase;
+    font-size: 2em;
+    color: var(--color-secundario);
+}
+
+.initial-description p,
+.primary-description p,
+.secondary-description p {
+    margin: 1em 0;
+    text-align: justify;
+    line-height: 1.3em;
+}
+
+.primary-description a {
+    background-color: var(--color-secundario);
+    color: var(--color-cuaternario);
+}
+
+.initial-description .boton,
+.primary-description .boton,
+.secondary-description .boton {
+    width: 15em;
+    margin: 0em auto;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.initial-description a:hover,
+.primary-description a:hover,
+.secondary-description a:hover {
+    background-color: var(--color-terciario);
+    border-color: var(--color-terciario);
+
+    transform: scale(1.1);
+}
+
+/************************************* Carrusel Actividades ************/
+
+.actividades {
+    padding: 3em 0em;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-secundario);
+    background-color: var(--color-cuaternario);
+}
+
+.extracurriculares-animado {
+    display: inline-block;
+    margin-bottom: 1.25em;
+    animation: desplazamiento 3s ease-in-out;
+}
+
+.carousel-container {
+    position: relative;
+    width: 90%;
+    margin: 0em auto;
+    margin-bottom: 1.25em;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.card {
+    display: inline-block;
+    position: relative;
+    width: 13.1em;
+    height: 13em;
+    margin-right: 1.25em;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .6em;
+    transition: all 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+    filter: blur(5px) contrast(65%);
+}
+
+.card-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    border-radius: .6em;
+    text-align: center;
+    overflow: hidden;
+    white-space: initial;
+    color: var(--bg-oscuro);
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0;
+
+    transform: translate(-50%, 50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card-content a {
+    padding: .1em .5em;
+    text-decoration: none;
+    font-size: .7em;
+    color: var(--color-secundario);
+    background-color: #f2f2f2a9;
+    border-radius: .4em;
+}
+
+.card:hover .card-content {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.enlaces a {
+    width: 35em;
+    margin: .5em auto;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: .8em;
+    color: var(--color-secundario);
+    transition: all 0.5s ease;
+}
+
+.enlaces a:hover {
+    text-transform: uppercase;
+    color: var(--color-primario);
+    transform: scale(1.3);
+}
+
+.boton-formulario {
+    text-align: center;
+    margin-top: 1.25em;
+}
+
+.boton {
+    display: inline-block;
+    padding: .625em 1.25em;
+    background-color: var(--color-primario);
+    color: var(--color-cuaternario);
+    border-radius: .3em;
+    font-family: "Roboto Slab", serif;
+    text-decoration: none;
+
+    transition: background-color 0.5s ease;
+}
+
+.boton:hover {
+    background-color: #0056b3;
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Animación para .extracurriculares-animado */
+@keyframes desplazamiento {
+    0% {
+        transform: translateX(-120%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(120%);
+    }
+
+}
+
+/* Animación para .boton:hover */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/************************* Modal Login **************************/
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: var(--color-cuaternario);
+    border-radius: 10px;
+    margin: 15% auto;
+    padding: 5px 15px;
+    width: 30%;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content p {
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.alerta {
+    color: orange;
+    font-size: 90px;
+    margin-bottom: 10px;
+}
+
+.close {
+    color: #656565;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--color-nav);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/************************************************************** Footer **************************/
+#footer-content {
+    width: 100%;
+    background-color: var(--color-terciario);
+}
+
+.footer-container {
+    display: flex;
+    flex-flow: column nowrap;
+
+    width: 100%;
+    gap: 2em;
+}
+
+.copy-footer {
+    text-align: center;
+    color: var(--color-cuaternario);
+    height: auto;
+    padding: .3em;
+}
+
+.footer-access {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: .5em;
+    padding: 1em;
+    gap: 5em;
+}
+
+.footer-link a {
+    text-decoration: none;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
+
+    border-radius: 1em;
+
+    background-color: var(--bg-oscuro);
+    color: var(--color-primario);
+    text-transform: uppercase;
+    text-align: center;
+
+    transition: transform 0.1s ease-in;
+}
+
+.footer-link a i {
+    font-size: 3em;
+}
+
+.footer-link a:hover {
+    background-color: var(--bg-oscuro);
+    color: var(--color-secundario);
+    box-shadow: 0px 0px 19px 3px rgba(255, 255, 255, 0.58);
+
+    transform: scale(1.03);
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+
+    padding: 1.5em;
+    background-color: var(--bg-oscuro);
+}
+
+.logo-link {
+    margin-left: 5em;
+}
+
+.logo-link a img {
+    width: 12em;
+    border-radius: 50%;
+}
+
+.address-info a,
+.attention-info {
+    display: flex;
+    flex-direction: row;
+    gap: .6em;
+    font-size: 1em;
+
+    text-decoration: none;
+    color: var(--color-primario);
+}
+
+.address-info i,
+.attention-info i {
+    font-size: 2em;
+}
+
+.address-info-p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.attention-info {
+    height: 6em;
+}
+
+.attention-info h5 {
+    font-size: 1.3em;
+}
+
+/************************* MEDIA QUERIES **************************/
+@media only screen and (max-width: 600px) {
+
+    /* Comenza el alto de los nav bar al hacer direccionar con <a href=""> */
+    section[id],
+    article[id] {
+        scroll-margin-top: 10vh;
+        /* Mismo height que el header */
+    }
+
+    /************************ Navbar *********/
+    .header {
+        width: 100vw;
+        height: 10vh;
+        padding-left: 1rem;
+    }
+
+    .nav .nav-link img {
+        height: 7vh;
+        margin-top: 0.5rem;
+    }
+
+    /*formato del estilo de la caja del menu*/
+    .nav-menu {
+        flex-direction: column;
+        /*ya esta en flex, pero es automatico que sea horizontal, asi le digo en columna;*/
+        align-items: center;
+        background-color: var(--color-nav);
+        position: fixed;
+        margin-top: 1em;
+        /*la posicion depende de la ventana donde se encuentra*/
+        left: 0;
+        top: 2vh;
+        /*con respecto al nav*/
+        width: 100%;
+        padding: 1rem 0;
+        height: calc(100%-1rem);
+        /*es un calculo para que se adapte a la ventana y que haya un scroll en el caso que el dispositivo sea muy chico*/
+        overflow-y: auto;
+        /*para que agregue la barra al costado cuando la necesite sino no*/
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    /*formato del estilo del link del menu*/
+    .nav-menu-item {
+        line-height: 6vh;
+    }
+
+    .nav-menu-link:hover {
+        /*para cuando esta activo quede con ese color el link*/
+        background: var(--color-primario);
+
+    }
+
+    .nav-toggle {
+        display: block;
+        /*para que aparezca la hamburguesa*/
+    }
+
+    .nav-menu_visible {
+        left: 0;
+        top: 7vh;
+
+    }
+
+    /************************ Banner *********/
+    .container-carousel {
+        margin-top: -1.7em;
+        height: 40vh;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /*para que la ajuste bien*/
+        opacity: 0.8;
+    }
+
+    .cuerpo-texto {
+        display: none;
+    }
+
+    /************************************* Novedades ************/
+    #novedades {
+        width: 100vw;
+    }
+
+    .titulo {
+        font-size: 2em;
+    }
+
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5em;
+        padding: .5em;
+    }
+
+    /**CSS carrusel  */
+    .carousel {
+        position: relative;
+        width: 80vw;
+        height: 20em;
+        margin-top: 1em;
+    }
+
+    .overlay {
+        padding: 0;
+    }
+
+    /* Posicionamiento del texto sobre la imagen */
+    .overlay h2 {
+        text-transform: uppercase;
+        font-size: 1.7em;
+        font-weight: 700;
+        margin-bottom: 1em;
+        color: var(--color-cuaternario);
+    }
+
+    .overlay p {
+        display: none;
+    }
+
+    .overlay a {
+        padding: .5em 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.2em;
+        color: var(--color-secundario);
+        background-color: #f2f2f2a9;
+        border-radius: .4em;
+    }
+
+
+    /**CSS Calendario**/
+    .container_calendar {
+        width: 350px;
+        height: 500px;
+    }
+
+    /************************ Sección de Tarjetas Niveles *********/
+    .institutional-container {
+        flex-direction: column;
+        justify-content: center;
+        padding: 2em;
+    }
+
+    .levels-container img {
+        width: 100%;
+    }
+
+    .initial-description p,
+    .primary-description p,
+    .secondary-description p {
+        display: none;
+    }
+
+    .initial-description h3,
+    .primary-description h3,
+    .secondary-description h3 {
+        margin-bottom: .5em;
+    }
+
+    /************************* Carrusel Actividades ************/
+
+    .actividades {
+        padding: 2em;
+        font-size: 1.2em;
+    }
+
+    .extracurriculares-animado {
+        margin-bottom: 1em;
+    }
+
+    .carousel-container {
+        width: 90vw;
+        margin-bottom: 1em;
+        overflow-x: scroll;
+    }
+
+    .enlaces a {
+        width: auto;
+        font-size: .8em;
+    }
+
+    .enlaces a:hover {
+        transform: scale(1.1);
+    }
+
+    .boton-formulario {
+        text-align: center;
+        margin-top: 1.25em;
+    }
+
+    .boton {
+        display: inline-block;
+        font-size: .8em;
+
+        transition: background-color 0.5s ease;
+    }
+
+
+    /* Animación para .extracurriculares-animado */
+    @keyframes desplazamiento {
+        0% {
+            transform: translateX(0%);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translate(10%);
+        }
+
+    }
+
+    /************************** Footer **************************/
+    #footer-content {
+        width: 100%;
+        background-color: var(--color-terciario);
+    }
+
+    .footer-access {
+        display: flex;
+        flex-direction: row wrap;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: .5em;
+        padding: 1em;
+        gap: 1.5em;
+    }
+
+    .footer-link a {
+        gap: 1;
+        padding: 1em;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        align-items: self-start;
+        gap: 1.5em;
+
+        padding: 1.5em;
+    }
+
+    .logo-link {
+        margin: 0em auto;
+    }
+
+    .address-info a,
+    .attention-info {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 750px) {
+
+    /* Comenza el alto de los nav bar al hacer direccionar con <a href=""> */
+    section[id],
+    article[id] {
+        scroll-margin-top: 10vh;
+        /* Mismo height que el header */
+    }
+
+    /************************ Navbar *********/
+    .header {
+        width: 100vw;
+        height: 10vh;
+        padding-left: 1rem;
+    }
+
+    .nav .nav-link img {
+        height: 7vh;
+        margin-top: 0.5rem;
+    }
+
+    /*formato del estilo de la caja del menu*/
+    .nav-menu {
+        flex-direction: column;
+        /*ya esta en flex, pero es automatico que sea horizontal, asi le digo en columna;*/
+        align-items: center;
+        background-color: var(--color-nav);
+        position: fixed;
+        margin-top: 1em;
+        /*la posicion depende de la ventana donde se encuentra*/
+        left: 0;
+        top: 2vh;
+        /*con respecto al nav*/
+        width: 100%;
+        padding: 1rem 0;
+        height: calc(100%-1rem);
+        /*es un calculo para que se adapte a la ventana y que haya un scroll en el caso que el dispositivo sea muy chico*/
+        overflow-y: auto;
+        /*para que agregue la barra al costado cuando la necesite sino no*/
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    /*formato del estilo del link del menu*/
+    .nav-menu-item {
+        line-height: 6vh;
+    }
+
+    .nav-menu-link:hover {
+        /*para cuando esta activo quede con ese color el link*/
+        background: var(--color-primario);
+
+    }
+
+    .nav-toggle {
+        display: block;
+        /*para que aparezca la hamburguesa*/
+    }
+
+    .nav-menu_visible {
+        left: 0;
+        top: 7vh;
+
+    }
+
+    /************************ Banner *********/
+    .container-carousel {
+        margin-top: -1.7em;
+        height: 50%;
+        ;
+
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /*para que la ajuste bien*/
+        opacity: 0.8;
+    }
+
+    .cuerpo-texto {
+        padding: 8px 8px;
+        font-size: 0.8rem;
+        bottom: 18%;
+    }
+
+    /************************************* Novedades ************/
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2em;
+        padding: 1em;
+    }
+
+    /**CSS carrusel  */
+    .carousel {
+        width: 75vw;
+        margin: 1em auto;
+    }
+
+    /**CSS Calendario**/
+    .container_calendar {
+        width: 400px;
+        height: 550px;
+    }
+
+    /************************ Sección de Tarjetas Niveles *********/
+    #institucional,
+    #footer-content {
+        width: 100vw;
+        background-color: var(--color-terciario);
+    }
+
+    .institutional-container {
+        flex-direction: column;
+        justify-content: center;
+        padding: 2em;
+    }
+
+    .levels-container {
+        padding: 1.5em 3em;
+        gap: .5em;
+    }
+
+    .initial-description p,
+    .primary-description p,
+    .secondary-description p {
+        margin: .5em 0;
+        text-align: justify;
+        line-height: 1.3em;
+    }
+
+    /************************* Carrusel Actividades ************/
+
+    .actividades {
+        padding: 2em;
+        font-size: 1.2em;
+    }
+
+    .extracurriculares-animado {
+        margin-bottom: .8em;
+    }
+
+    .carousel-container {
+        width: 70vw;
+    }
+
+    .enlaces a {
+        width: auto;
+        font-size: 1em;
+    }
+
+    /* Animación para .extracurriculares-animado */
+    @keyframes desplazamiento {
+        0% {
+            transform: translateX(0%);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translate(27%);
+        }
+
+    }
+
+    /************************** Footer **************************/
+    #footer-content {
+        width: 100%;
+        background-color: var(--color-terciario);
+    }
+
+    .footer-access {
+        display: flex;
+        flex-direction: row wrap;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: .5em;
+        padding: 1em;
+        gap: 1.5em;
+    }
+
+    .footer-link a {
+        gap: 1;
+        padding: 1em;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        align-items: self-start;
+        gap: 1.5em;
+
+        padding: 1.5em;
+    }
+
+    .logo-link {
+        margin: 0em auto;
+    }
+
+    .address-info a,
+    .attention-info {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 751px) and (max-width: 1400px) {
+
+    /************************************* Novedades ************/
+    #novedades {
+        width: 100vw;
+        padding: 1em;
+    }
+
+    .main-content {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+
+    /**CSS carrusel  */
+    .carousel {
+        position: relative;
+        width: 37em;
+        height: 23em;
+    }
+
+    /* Posicionamiento del texto sobre la imagen */
+    .overlay h2 {
+        text-transform: uppercase;
+        font-size: 2em;
+        font-weight: 700;
+        margin-bottom: .5em;
+        color: var(--color-cuaternario);
+    }
+
+    .overlay p {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-bottom: 1.5em;
+    }
+
+    .slide:last-child .overlay p {
+        line-height: 1.5em;
+    }
+
+    .overlay a {
+        padding: .5em 1em;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.2em;
+        color: var(--color-secundario);
+        background-color: #f2f2f2a9;
+        border-radius: .4em;
+    }
+
+    /************************* Sección de Tarjetas Niveles **************************/
+
+    #institucional,
+    #footer-content {
+        width: 100%;
+        background-color: var(--color-terciario);
+    }
+
+    .institutional-container {
+        flex-direction: column;
+        justify-content: center;
+
+        width: 100%;
+        margin: 0em auto;
+        padding: 4em 2em;
+        gap: 2em;
+    }
+
+    .levels-container {
+        width: 60vw;
+        margin: 0em auto;
+        padding: 1em 2em;
+    }
+
+    /************************************* Carrusel Actividades ************/
+
+    .actividades {
+        padding: 1em;
+    }
+
+    .carousel-container {
+        width: 90%;
+    }
+
+    .enlaces a {
+        width: auto;
+    }
+
+    .enlaces a:hover {
+        transform: scale(1.2);
+    }
+
+    /* Animación para .extracurriculares-animado */
+    @keyframes desplazamiento {
+        0% {
+            transform: translateX(0%);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translate(50%);
+        }
+
+    }
+}

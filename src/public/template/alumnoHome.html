@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta datos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pagina escolar del Instituto Luminova">
+    <meta name="keywords" content="escuela, instituto, inicial, primaria, secundario">
+    <meta name="author" content="Agustina Velazquez, Andreina Romero, Eleonora Roux, Vilma Ponce">
+    <title>Mi Cuenta | Instituto Luminova</title>
+    <!-- zona de script FontAwesome -->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="../static/css/alumnoHome.css">
+    <!-- zona de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../index.html" class="nav-link"><img src="../static/img/navFondo.png" alt=""></a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item">
+                    <a href="../index.html" class="nav-menu-link nav-link">Inicio</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="../index.html#institucional" class="nav-menu-link nav-link">Niveles</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="../index.html#actividades" class="nav-menu-link nav-link">Actividades</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="./contact.html" class="nav-menu-link nav-link">Contacto</a>
+                </li>
+                <li class="nav-menu-item user dropdown">
+                    <a class="nav-menu-link nav-link"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
+                    <!-- menu desplegable -->
+                    <ul class="dropdown-content" id="menu-desplegable-user">
+                        <li><a href="#update"><i class="fa-solid fa-user-pen"></i> Modificar Perfil</a></li>
+                        <li><a id="cerrar-sesion"><i class="fa-solid fa-user-plus"></i> Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Barra de Navegación -->
+        <aside>
+            <div class="user-info">
+                <img src="../static/img/user.png" alt="Img usuario">
+                <h2>¡Hola <span id="name-user"></span>!</h2>
+            </div>
+            <ul class="nav">
+                <li><a href="#datos" id="nav-datos" class="active"><i class="fa-solid fa-user"></i> Mis Datos</a></li>
+                <li><a href="#cursos" id="nav-cursos"><i class="fa-solid fa-list"></i> Mis Inscripciones</a></li>
+            </ul>
+        </aside>
+        <!-- Contenido Principal -->
+        <div class="main-container">
+            <section class="section" id="datos">
+                <h3 class="section-title">Mis Datos</h3>
+                <div class="section-info">
+                    <table id="alumno-info">
+                        <th class="table-title">Datos Personales</th>
+                        <tr class="table-section">
+                            <td class="table-section-title">Nombre Completo:</td>
+                            <td class="description"><span id="user-nombre-completo"></span></td>
+                        </tr>
+                        <tr class="table-section">
+                            <td class="table-section-title">DNI:</td>
+                            <td class="description"><span id="user-dni"></span></td>
+                        </tr>
+                        <tr class="table-section">
+                            <td class="table-section-title">Fecha de Nacimiento:</td>
+                            <td class="description"><span id="user-nacimiento"></span></td>
+                        </tr>
+                        <th class="table-title">Datos de Contacto:</th>
+                        <tr class="table-section">
+                            <td class="table-section-title">Correo del Tutor</td>
+                            <td class="description"><span id="user-email"></span></td>
+                        </tr>
+                        <tr class="table-section">
+                            <td class="table-section-title">Teléfono del Tutor:</td>
+                            <td class="description"><span id="user-tel"></span></td>
+                        </tr>
+                        <th class="table-title">Dirección:</th>
+                        <tr class="table-section">
+                            <td class="table-section-title">Calle y Número:</td>
+                            <td class="description"><span id="user-address"></span></td>
+                        </tr>
+                        <tr class="table-section">
+                            <td class="table-section-title">Ciudad:</td>
+                            <td class="description"><span id="user-city"></span></td>
+                        </tr>
+                        <tr class="table-section">
+                            <td class="table-section-title">Código Postal:</td>
+                            <td class="description"><span id="user-cp"></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section class="section hidden" id="cursos">
+                <h3 class="section-title">Mis Inscripciones</h3>
+                <div class="section-info">
+                    <span id="sin-inscripcion-aviso">No se encontraron inscipciones.</span>
+                    <table class="tabla-inscripciones" id="tabla-de-inscripciones">
+                        <thead>
+                            <tr>
+                                <th>ACTIVIDAD</th>
+                                <th>ESTADO</th>
+                                <th>ACCIONES</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inscripciones-list"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section class="section hidden" id="update">
+                <h3 class="section-title">Modificar Datos</h3>
+                <div class="section-info">
+                    <form id="alumno-update-form" class="alumno-info-update">
+                        <div class="alumno-info-disabled">
+                            <div class="inputLabel">
+                                <div class="inputBox">
+                                    <label for="user-name-update">Nombre Completo*: </label>
+                                    <input type="text" id="user-name-update" disabled>
+                                </div>
+                                <div class="inputBox">
+                                    <label for="user-dni-update">DNI*: </label>
+                                    <input type="number" id="user-dni-update" disabled>
+                                </div>
+                                <div class="inputBox">
+                                    <label for="ser-nac-update">Fecha de Nacimiento*:</label>
+                                    <input type="text" id="user-nac-update" disabled>
+                                </div>
+                            </div>
+                            <span>* Estos datos no se pueden modificar.</span>
+                        </div>
+                        <div class="alumno-info-input">
+                            <h4>Datos de Contacto</h4>
+                            <div class="inputLabel">
+                                <div class="inputBox">
+                                    <label for="user-email-update">Correo del Tutor:</label>
+                                    <input type="email" name="user-email-update" id="user-email-update">
+                                </div>
+                                <div class="inputBox">
+                                    <label for="user-tel-update">Teléfono del Tutor:</label>
+                                    <input type="tel" name="user-tel-update" id="user-tel-update">
+                                </div>
+                            </div>
+                            <h4>Dirección</h4>
+                            <div class="inputLabel">
+                                <div class="inputBox">
+                                    <label for="user-calle-update">Calle:</label>
+                                    <input type="text" name="user-calle-update" id="user-calle-update">
+                                </div>
+                                <div class="inputBox">
+                                    <label for="user-num-update">Altura:</label>
+                                    <input type="number" name="user-num-update" id="user-num-update">
+                                </div>
+                            </div>
+                            <div class="inputLabel">
+                                <div class="inputBox">
+                                    <label for="user-ciudad-update">Ciudad:</label>
+                                    <input type="text" name="user-ciudad-update" id="user-ciudad-update">
+                                </div>
+                                <div class="inputBox">
+                                    <label for="user-cp-update">Código Postal:</label>
+                                    <input type="number" name="user-cp-update" id="user-cp-update">
+                                </div> 
+                            </div>
+                        </div>
+                        <button class="btn-inscripcion" type="submit">Modificar Perfil</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Modal de error -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <i id="close-error" class="fa-solid fa-xmark close"></i>
+            <i class="fa-solid fa-xmark error"></i>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    <!-- Modal de exito -->
+    <div id="succesModal" class="modal">
+        <div class="modal-content">
+            <i id="close-succes" class="fa-solid fa-xmark close"></i>
+            <i class="fa-solid fa-check succes"></i>
+            <p id="succes-message"></p>
+        </div>
+    </div>
+    <footer>
+        <section id="footer-content" class="footer-pages">
+            <!-- Contacto -->
+            <article class="footer-container">
+                <div class="footer-info">
+                    <!-- Logo -->
+                    <div class="logo-link">
+                        <a href="../public/index.html">
+                            <img src="../static/img/navFondo.png" alt="Logo sin fondo">
+                        </a>
+                    </div>
+                    <!-- Dirección -->
+                    <div class="address-info">
+                        <a href="./contact.html">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <div class="address-info-p">
+                                <p>Bartolomé Mitre 1234, Florida Oeste.</p>
+                                <p>Buenos Aires, Argentina</p>
+                                <p>Tel: 1234-5678</p>
+                                <p>escuela@correo.com</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Horario de Atención -->
+                    <div class="attention-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h5>Horario de Administración</h5>
+                            <p>De Lunes a Viernes de 7:30 a 19:00 hs</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Derechos -->
+            <article class="copy-footer">
+                <p>© 2023 Todos los derechos reservados Grupo 14-Comision 24123</p>
+            </article>
+        </section>
+    </footer>
+    <script src="../static/js/alumnoHome.js"></script>
+</body>
+
+</html>

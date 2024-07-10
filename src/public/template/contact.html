@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta datos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pagina escolar del Instituto Luminova">
+    <meta name="keywords" content="escuela, instituto, inicial, primaria, secundario">
+    <meta name="author" content="Agustina Velazquez, Andreina Romero, Eleonora Roux, Vilma Ponce">
+    <title>Contacto | Instituto Luminova</title>
+    <!-- zona de script FontAwesome y Bootstrap-->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="../static/css/contact.css">
+    <!-- zona de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../index.html" class="nav-link"><img src="../static/img/navFondo.png" alt=""></a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item">
+                    <a href="../index.html" class="nav-menu-link nav-link">Inicio</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="../index.html#institucional" class="nav-menu-link nav-link">Niveles</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="../index.html#actividades" class="nav-menu-link nav-link">Actividades</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a id="btnInscripcion2" class="nav-menu-link nav-link">Inscripción</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="./contact.html" class="nav-menu-link nav-link">Contacto</a>
+                </li>
+                <li class="nav-menu-item dropdown">
+                    <a class="nav-menu-link nav-link"><i class="fa-solid fa-user"></i></a>
+                    <!-- menu desplegable -->
+                    <ul class="dropdown-content">
+                        <li><a href="./singin.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></a></li>
+                        <li><a href="./singup.html"><i class="fa-solid fa-user-plus"></i> Registrarse</a></a></li>
+                    </ul>
+                </li>
+                <li class="nav-menu-item user dropdown" id="user-links">
+                    <a class="nav-menu-link nav-link"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
+                    <!-- menu desplegable -->
+                    <ul class="dropdown-content" id="menu-desplegable-user">
+                        <li><a href="./alumnoHome.html"><i class="fa-solid fa-right-to-bracket"></i> Mi Perfil</a></li>
+                        <li><a id="cerrar-sesion"><i class="fa-solid fa-user-plus"></i> Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Sección con Información -->
+        <section class="main-section">
+            <!-- Donde Estamos -->
+            <article>
+                <h2>¿Dónde estámos?</h2>
+                <p><a href="https://maps.app.goo.gl/q6TfJA4ziBuqdPbV6">Bartolomé Mitre 1234, Florida Oeste, Buenos
+                        Aires.</a></p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.5971588319676!2d-58.51030162364859!3d-34.53843285405427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6d5e8bf7b27%3A0x494fb7095fcb2530!2sAv.%20Bartolom%C3%A9%20Mitre%201234%2C%20B1604AKR%20Florida%20Oeste%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1711737678810!5m2!1ses!2sar"
+                    style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </article>
+            <!-- Horario y Contacto -->
+            <article>
+                <div>
+                    <h2>Horario de Atención:</h2>
+                    <p>De Lunes a Viernes de 7:30 a 19:00 hs</p>
+                </div>
+                <div>
+                    <h2>Contacto</h2>
+                    <p>Tel: 1234-5678</p>
+                    <p>escuela@correo.com</p>
+                </div>
+            </article>
+        </section>
+        <section class="form-section" id="form-2">
+            <article>
+                <h2>¡Hablemos!</h2>
+                <p>Dejanos tus datos y te contactaremos</p>
+                <form action="https://formsubmit.co/56af404bb9362a3cc071d4a77bd3d221" method="POST" class="form-content">
+                    <!-- Nombre y Apellido -->
+                    <div class="form-group">
+                        <div class="inputBox">
+                            <input type="text" id="nombre" name="nombre" placeholder="Nombre(s): Ana María" required>
+                            <i>Nombre(s)</i>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" id="apellido" name="apellido" placeholder="Apellido(s): Pérez" required>
+                            <i>Apellido(s)</i>
+                        </div>
+                    </div>
+                    <!-- Correo y Teléfono de contacto -->
+                    <div class="form-group">
+                        <div class="inputBox">
+                            <input type="email" id="correo" name="correo" placeholder="ana@correo.com" required>
+                            <i>Correo</i>
+                        </div>
+                        <div class="inputBox">
+                            <input type="tel" id="telefono" name="telefono" placeholder="1122334455" required>
+                            <i>Teléfono de contacto</i>
+                        </div>
+                    </div>
+                    <!-- Área a comunicarse y mensaje -->
+                    <div class="form-group messagge-group">
+                        <div class="textBox">
+                            <select id="area" name="area" required>
+                                <option selected disabled>Área a contactar</option>
+                                <option value="1">Dirección</option>
+                                <option value="2">Administración</option>
+                                <option value="3">Tesorería</option>
+                                <option value="4">Acts Extracurriculares</option>
+                                <option value="5">Otra</option>
+                            </select>
+                        </div>
+                        <div class="textBox">
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Su Mensaje..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-form">Enviar</button>
+                </form>
+            </article>
+        </section>        
+    </main>
+
+    <footer>
+        <section id="footer-content">
+            <!-- Contacto -->
+            <article class="footer-container">
+                <div class="footer-info">
+                    <!-- Logo -->
+                    <div class="logo-link">
+                        <a href="../index.html">
+                            <img src="../static/img/navFondo.png" alt="Logo sin fondo">
+                        </a>
+                    </div>
+                    <!-- Dirección -->
+                    <div class="address-info">
+                        <a href="./contact.html">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <div class="address-info-p">
+                                <p>Bartolomé Mitre 1234, Florida Oeste.</p>
+                                <p>Buenos Aires, Argentina</p>
+                                <p>Tel: 1234-5678</p>
+                                <p>escuela@correo.com</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Horario de Atención -->
+                    <div class="attention-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h5>Horario de Administración</h5>
+                            <p>De Lunes a Viernes de 7:30 a 19:00 hs</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Derechos -->
+            <article class="copy-footer">
+                <p>© 2023 Todos los derechos reservados Grupo 14-Comision 24123</p>
+            </article>
+        </section>
+    </footer>
+    <script src="../static/js/contact.js"></script>
+    <script src="../static/js/navbar.js"></script>
+</body>
+
+</html>

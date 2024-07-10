@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta datos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pagina escolar del Instituto Luminova">
+    <meta name="keywords" content="escuela, instituto, inicial, primaria, secundario">
+    <meta name="author" content="Agustina Velazquez, Andreina Romero, Eleonora Roux, Vilma Ponce">
+    <title>Formulario de Inscripción | Instituto Luminova</title>
+    <!-- zona de script FontAwesome -->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="../static/css/formulario.css">
+    <!-- zona de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <a href="../index.html" class="nav-link"><img src="../static/img/navFondo.png" alt=""></a>
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="../index.html" class="nav-menu-link nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="../index.html#institucional" class="nav-menu-link nav-link">Niveles</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="../index.html#actividades" class="nav-menu-link nav-link">Actividades</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="./alumnoHome.html" class="nav-menu-link nav-link">Mis Inscripciones</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="./contact.html" class="nav-menu-link nav-link">Contacto</a>
+                    </li>
+                    <li class="nav-menu-item dropdown">
+                        <a class="nav-menu-link nav-link"><i class="fa-solid fa-user"></i></a>
+                        <!-- menu desplegable -->
+                        <ul class="dropdown-content">
+                            <li><a href="./singin.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></a>
+                            </li>
+                            <li><a href="./singup.html"><i class="fa-solid fa-user-plus"></i> Registrarse</a></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu-item user dropdown" id="user-links">
+                        <a class="nav-menu-link nav-link"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
+                        <!-- menu desplegable -->
+                        <ul class="dropdown-content" id="menu-desplegable-user">
+                            <li><a href="./alumnoHome.html"><i class="fa-solid fa-right-to-bracket"></i> Mi Perfil</a></li>
+                            <li><a id="cerrar-sesion"><i class="fa-solid fa-user-plus"></i> Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Formulario de Inscripción</h2>
+            <section id="formulario-container">
+                <form id="registroForm">
+                    <label for="nombre">Nombre completo del Alumno:</label>
+                    <input type="text" id="nombreCompleto" name="nombre" disabled>
+    
+                    <label for="email">Correo de Contacto:</label>
+                    <input type="email" id="email" name="email" disabled>
+    
+                    <label for="estudios">Nivel Escolar:</label>
+                    <select id="estudios" name="estudios" onchange="nivelEscolar()">
+    
+                        <option value="" selected>Seleccione su nivel escolar</option>
+                        <option value="inicial">Inicial</option>
+                        <option value="primario">Primario</option>
+                        <option value="secundario">Secundario</option>
+    
+                    </select>
+    
+                    <div class="conocimientos-container hidden" id="actividades">
+                        <h3>Actividades a elegir:</h3>
+    
+                        <div id="deportes" class="sector">
+                            <h4>Sector Deportivo:</h4>
+                            <div id="natacionDiv">
+                                <input type="checkbox" id="natacion" name="natacion" value="4">
+                                <label for="natacion">Natación</label>
+                            </div>
+                            <div id="basketDiv">
+                                <input type="checkbox" id="basket" name="basket" value="15">
+                                <label for="basket">Basket</label>
+                            </div>
+                            <div id="futbolDiv">
+                                <input type="checkbox" id="futbol" name="futbol" value="16">
+                                <label for="futbol">Fútbol</label>
+                            </div>
+                            <div id="atletismoDiv">
+                                <input type="checkbox" id="atletismo" name="atletismo" value="17">
+                                <label for="atletismo">Atletismo</label>
+                            </div>
+                        </div>
+    
+                        <div id="arte" class="sector">
+                            <h4>Sector Artístico:</h4>
+                            <div id="teatroDiv">
+                                <input type="checkbox" id="teatro" name="teatro" value="18">
+                                <label for="teatro">Club de Teatro</label>
+                            </div>
+                            <div id="musicaDiv">
+                                <input type="checkbox" id="musica" name="musica" value="19">
+                                <label for="musica">Club de Música</label>
+                            </div>
+                            <div id="pintura_dibujoDiv">
+                                <input type="checkbox" id="pintura_dibujo" name="pintura_dibujo" value="20">
+                                <label for="pintura_dibujo">Club de Artes Plásticas</label>
+                            </div>
+                        </div>
+    
+                        <div id="academico" class="sector">
+                            <h4>Sector Académico:</h4>
+                            <div id="cienciasDiv">
+                                <input type="checkbox" id="ciencias" name="ciencias" value="21">
+                                <label for="ciencias">Club de Ciencias</label>
+                            </div>
+                            <div id="lecturaDiv">
+                                <input type="checkbox" id="lectura" name="lectura" value="22">
+                                <label for="lectura">Club de Lectura</label>
+                            </div>
+                            <div id="debateDiv">
+                                <input type="checkbox" id="debate" name="debate" value="23">
+                                <label for="debate">Club de Debate</label>
+                            </div>
+                        </div>
+
+                        <div id="comunitario" class="sector">
+                            <h4>Sector Voluntariado:</h4>
+                            <div id="hospitalesDiv">
+                                <input type="checkbox" id="hospitales" name="hospitales" value="24">
+                                <label for="hospitales">Hospitales</label>
+                            </div>
+                            <div id="refugiosDiv">
+                                <input type="checkbox" id="refugios_animales" name="refugios_animales"
+                                value="25">
+                            <label for="refugios_animales">Refugios de Animales</label>
+                            </div>
+                        </div>
+
+                        <div id="idiomas" class="sector">
+                            <h4>Sector Idiomas:</h4>
+                            <div id="inglesDiv">
+                                <input type="checkbox" id="ingles" name="ingles" value="1">
+                                <label for="ingles">Inglés</label>
+                            </div>
+                            <div id="francesDiv">
+                                <input type="checkbox" id="frances" name="frances" value="2">
+                                <label for="frances">Francés</label>
+                            </div>
+                            <div id="alemanDiv">
+                                <input type="checkbox" id="aleman" name="aleman" value="3">
+                                <label for="aleman">Alemán</label>
+                            </div>
+                        </div>
+
+                        <div id="huertaDiv" class="sector">
+                            <h4>Sector Huerta:</h4>
+                            <div id="huertaInputDiv">
+                                <input type="checkbox" id="huerta" name="huerta" value="26">
+                                <label for="huerta">Huerta Orgánica</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="boton">Enviar</button>
+                </form>
+            </section>
+        </main>
+        <!-- Modal de error -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <i id="close-error" class="fa-solid fa-xmark close"></i>
+                <i class="fa-solid fa-xmark error"></i>
+                <p id="error-message"></p>
+            </div>
+        </div>
+        <!-- Modal de exito -->
+        <div id="succesModal" class="modal">
+            <div class="modal-content">
+                <i id="close-succes" class="fa-solid fa-xmark close"></i>
+                <i class="fa-solid fa-check succes"></i>
+                <p id="succes-message"></p>
+            </div>
+        </div>
+        <footer>
+            <section id="footer-content" class="footer-pages">
+                <!-- Contacto -->
+                <article class="footer-container">
+                    <div class="footer-info">
+                        <!-- Logo -->
+                        <div class="logo-link">
+                            <a href="../index.html">
+                                <img src="../static/img/navFondo.png" alt="Logo sin fondo">
+                            </a>
+                        </div>
+                        <!-- Dirección -->
+                        <div class="address-info">
+                            <a href="./contact.html">
+                                <i class="fa-solid fa-phone-volume"></i>
+                                <div class="address-info-p">
+                                    <p>Bartolomé Mitre 1234, Florida Oeste.</p>
+                                    <p>Buenos Aires, Argentina</p>
+                                    <p>Tel: 1234-5678</p>
+                                    <p>escuela@correo.com</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Horario de Atención -->
+                        <div class="attention-info">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h5>Horario de Administración</h5>
+                                <p>De Lunes a Viernes de 7:30 a 19:00 hs</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Derechos -->
+                <article class="copy-footer">
+                    <p>© 2023 Todos los derechos reservados Grupo 14-Comision 24123</p>
+                </article>
+            </section>
+        </footer>
+    </div>
+    <!-- <script src="../static/js/main.js"></script> -->
+    <script src="../static/js/formulario.js"></script>
+    <script src="../static/js/navbar.js"></script>
+</body>
+
+</html>

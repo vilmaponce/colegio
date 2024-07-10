@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta datos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pagina escolar del Instituto Luminova">
+    <meta name="keywords" content="escuela, instituto, inicial, primaria, secundario">
+    <meta name="author" content="Agustina Velazquez, Andreina Romero, Eleonora Roux, Vilma Ponce">
+    <title>Crear Usuario | Instituto Luminova</title>
+    <!-- zona de script FontAwesome -->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="../static/css/singin-singup.css">
+    <!-- zona de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <a href="../index.html" class="nav-link"><img src="../static/img/navFondo.png" alt=""></a>
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="../index.html" class="nav-menu-link nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="../index.html#institucional" class="nav-menu-link nav-link">Niveles</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="../index.html#actividades" class="nav-menu-link nav-link">Actividades</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a id="btnInscripcion2" class="nav-menu-link nav-link">Inscripción</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="./contact.html" class="nav-menu-link nav-link">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <!-- Registro -->
+            <section class="contentLogin signinForm">
+                <form id="registerForm">
+                    <div class="form">
+                        <h2>CREAR USUARIO</h2>
+                        <div class="inputLabel">
+                            <div class="inputBox">
+                                <input type="text" id="nombre" placeholder=" ">
+                                <i class="fa-regular fa-user"></i>
+                                <label for="nombre">Nombre/s</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" id="apellido" placeholder=" ">
+                                <i class="fa-regular fa-user"></i>
+                                <label for="apellido">Apellido/s</label>
+                            </div>
+                        </div>
+                        <div class="inputLabel">
+                            <div class="inputBox">
+                                <input type="number" id="dni" placeholder=" ">
+                                <i class="fa-regular fa-id-card"></i>
+                                <label for="dni">DNI</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="date" id="nacimiento" placeholder=" ">
+                                <i class="fa-regular fa-id-card"></i>
+                                <label for="nacimiento">dd/mm/aaaa</label>
+                            </div>
+                        </div>
+                        <div class="inputLabel">
+                            <div class="inputBox">
+                                <input type="text" id="email" placeholder=" ">
+                                <i class="fa-regular fa-envelope"></i>
+                                <label for="email">Correo del tutor</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="number" id="telefono" placeholder=" ">
+                                <i class="fa-solid fa-phone"></i>
+                                <label for="telefono">Teléfono del tutor</label>
+                            </div>
+                        </div>
+                        <div class="inputLabel">
+                            <div class="inputBox">
+                                <input type="text" id="calle" placeholder=" ">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <label for="calle">Calle</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="number" id="num" placeholder=" ">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <label for="numero">Número</label>
+                            </div>
+                        </div>
+                        <div class="inputLabel">
+                            <div class="inputBox">
+                                <input type="text" id="ciudad" placeholder=" ">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <label for="ciudad">Ciudad</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="number"  id="codigoPostal" placeholder=" ">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <label for="codigo_postal">Código Postal</label>
+                            </div>
+                        </div>
+                        <div class="inputLabel">
+                            <div class="inputBox">
+                                <select name="escolaridad" id="genero">
+                                    <option value="" selected>Seleccione género</option>
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="NB">No Binario</option>
+                                    <option value="PD">Prefiero no decirlo</option>
+                                </select>
+                                <i class="fa-regular fa-user"></i>
+                            </div>
+                            <div class="input">
+                                <input class="input__field" id="clave" type="password" placeholder=" ">
+                                <i class="fa-solid fa-lock"></i>
+                                <label for="password" class="input__label">Contraseña</label>
+                                <div class="eye-icon-wrapper">
+                                    <i class="eye-icon fa-regular fa-eye-slash"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputBox">
+                            <button class="btnForm" id="registerFormBtn">Crear Usuario</button>
+                        </div>
+                        <p>¿Ya tienes cuenta? <a href="./singin.html">INGRESÁ!</a></p>
+                    </div>
+                </form>
+                <div id="password-modal" class="password-modal">
+                    <h3>Requisitos de la Contraseña:</h3>
+                    <ul id="password-requirements">
+                        <li id="length" class="requirement">Mínimo 8 caracteres</li>
+                        <li id="uppercase" class="requirement">Al menos una mayúscula</li>
+                        <li id="number" class="requirement">Al menos un número</li>
+                        <li id="special" class="requirement">Al menos un caracter especial</li>
+                    </ul>
+                    <div class="progress-container">
+                        <div id="password-progress" class="progress-bar"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <section id="footer-content" class="footer-pages">
+                <!-- Contacto -->
+                <article class="footer-container">
+                    <div class="footer-info">
+                        <!-- Logo -->
+                        <div class="logo-link">
+                            <a href="../index.html">
+                                <img src="../static/img/navFondo.png" alt="Logo sin fondo">
+                            </a>
+                        </div>
+                        <!-- Dirección -->
+                        <div class="address-info">
+                            <a href="./contact.html">
+                                <i class="fa-solid fa-phone-volume"></i>
+                                <div class="address-info-p">
+                                    <p>Bartolomé Mitre 1234, Florida Oeste.</p>
+                                    <p>Buenos Aires, Argentina</p>
+                                    <p>Tel: 1234-5678</p>
+                                    <p>escuela@correo.com</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Horario de Atención -->
+                        <div class="attention-info">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h5>Horario de Administración</h5>
+                                <p>De Lunes a Viernes de 7:30 a 19:00 hs</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Derechos -->
+                <article class="copy-footer">
+                    <p>© 2024 Todos los derechos reservados Grupo 14-Comision 24123</p>
+                </article>
+            </section>
+        </footer>
+    </div>
+    <!-- Zona de Scripts -->
+    <script src="../static/js/singup.js"></script>
+    <script src="../static/js/navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

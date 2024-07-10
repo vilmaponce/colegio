@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta datos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pagina escolar del Instituto Luminova">
+    <meta name="keywords" content="escuela, instituto, inicial, primaria, secundario">
+    <meta name="author" content="Agustina Velazquez, Andreina Romero, Eleonora Roux, Vilma Ponce">
+    <title>Nivel Inicial | Instituto Luminova</title>
+    <!-- zona de script FontAwesome -->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="../static/css/niveles-educativos.css">
+    <!-- zona de fuentes e iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="../index.html" class="nav-link"><img src="../static/img/navFondo.png" alt="Logo Luminova"></a>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-menu-item">
+                    <a href="../index.html" class="nav-menu-link nav-link">Inicio</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="../index.html#institucional" class="nav-menu-link nav-link">Niveles</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="../index.html#actividades" class="nav-menu-link nav-link">Actividades</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a id="btnInscripcion2" class="nav-menu-link nav-link">Inscripción</a>
+                </li>
+                <li class="nav-menu-item">
+                    <a href="./contact.html" class="nav-menu-link nav-link">Contacto</a>
+                </li>
+                <li class="nav-menu-item dropdown">
+                    <a class="nav-menu-link nav-link"><i class="fa-solid fa-user"></i></a>
+                    <!-- menu desplegable -->
+                    <ul class="dropdown-content">
+                        <li><a href="./singin.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></a></li>
+                        <li><a href="./singup.html"><i class="fa-solid fa-user-plus"></i> Registrarse</a></a></li>
+                    </ul>
+                </li>
+                <li class="nav-menu-item user dropdown" id="user-links">
+                    <a class="nav-menu-link nav-link"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
+                    <!-- menu desplegable -->
+                    <ul class="dropdown-content" id="menu-desplegable-user">
+                        <li><a href="./alumnoHome.html"><i class="fa-solid fa-right-to-bracket"></i> Mi Perfil</a></li>
+                        <li><a id="cerrar-sesion"><i class="fa-solid fa-user-plus"></i> Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Banner con imagen del nivel y pequeña descripción -->
+        <section class="levels-banner levels-banner-initial">
+            <article class="banner-information">
+                <h1>Jardín de Infantes</h1>
+                <p>Desde el Jardín de Infantes, la institución escolar tiene la responsabilidad de crear para los niños
+                    oportunidades para aprender, pues enseñar es generar condiciones para que otro aprenda, tarea
+                    primordial de los docentes. El vínculo pedagógico escolar se inicia con la presencia de un adulto
+                    capaz de transmitir una experiencia cultural, interviniendo entre las posibilidades reales y
+                    potenciales del niño, reconociéndolo como sujeto activo y capaz de recibir un legado.</p>
+            </article>
+        </section>
+        <!-- Misión -->
+        <section class="levels-content">
+            <article class="level-container">
+                <img src="../static/img/inicial3.jpg" alt="Nivel Inicial">
+                <div class="initial-proposals">
+                    <p>Esto implica hablar de un aprendizaje con sentido y significación para cada individuo, de evitar
+                        el fracaso escolar para que el esfuerzo por parte de la sociedad a fin de que ese primer
+                        contacto con una organización social proyecte influencias positivas en su futuro como ciudadano.
+                    </p>
+                    <p>Desde el primer momento, esperamos que los niños vayan construyendo la idea de que el jardín
+                        puede ofrecerles una experiencia formativa y desafiante, que los va a incluir a todos, que les
+                        abrirá una puerta de nuevos conocimientos y la posibilidad de integrarse al mundo desde sus
+                        deseos intereses y posibilidades.</p>
+                    <p>La apropiación del conocimiento del mundo que lo rodea por parte del niño, así como la formación
+                        de su identidad personal y la construcción de su autoestima, requiere de la comunicación como
+                        factor relevante.</p>
+                </div>
+            </article>
+        </section>
+        <!-- Imágenes alusivas al nivel -->
+        <section class="level-carousel">
+            <img src="../static/img/inicial4.jpg" alt="Nivel Inicial">
+            <img src="../static/img/inicial5.jpg" alt="Nivel Inicial">
+            <img src="../static/img/inicial6.jpg" alt="Nivel Inicial">
+            <img src="../static/img/inicial7.jpg" alt="Nivel Inicial">
+        </section>
+        <!-- más info de la Misión -->
+        <section class="levels-content second">
+            <article class="level-container">
+                <div class="initial-proposals">
+                    <p>La comunicación le permite conocerse y relacionarse con el mismo, con el otro y con el mundo, en
+                        su camino hacia la socialización.</p>
+                    <p>En este proceso de interacción constante, el niño forma parte de una red vincular que lo marca
+                        como ser social y le transmite una cultura de convivencia.</p>
+                    <p>Intuitivamente, el niño hace uso de diferentes formas de comunicación: la voz, el movimiento
+                        corporal, el lenguaje y el juego.</p>
+                    <p>A través de los lenguajes, el niño puede expresar ideas, sentimientos, estados de animo y
+                        fantasías. Mediante la imitación, la improvisación y la creación, explora y construye las formas
+                        de expresión y comunicación.</p>
+                </div>
+                <img src="../static/img/inicial8.jpg" alt="Nivel Inicial">
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section id="footer-content" class="footer-pages">
+            <!-- Contacto -->
+            <article class="footer-container">
+                <div class="footer-info">
+                    <!-- Logo -->
+                    <div class="logo-link">
+                        <a href="../index.html">
+                            <img src="../static/img/navFondo.png" alt="Logo sin fondo">
+                        </a>
+                    </div>
+                    <!-- Dirección -->
+                    <div class="address-info">
+                        <a href="./contact.html">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <div class="address-info-p">
+                                <p>Bartolomé Mitre 1234, Florida Oeste.</p>
+                                <p>Buenos Aires, Argentina</p>
+                                <p>Tel: 1234-5678</p>
+                                <p>escuela@correo.com</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Horario de Atención -->
+                    <div class="attention-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h5>Horario de Administración</h5>
+                            <p>De Lunes a Viernes de 7:30 a 19:00 hs</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <!-- Derechos -->
+            <article class="copy-footer">
+                <p>© 2023 Todos los derechos reservados Grupo 14-Comision 24123</p>
+            </article>
+        </section>
+    </footer>
+    <script src="../static/js/main.js"></script>
+</body>
+
+</html>

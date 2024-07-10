@@ -1,0 +1,662 @@
+/*
+Autores: Agustina Velazquez
+         Andreina Romero
+         Eleonora Roux
+         Vilma Ponce
+Fecha: 19/03/2024
+Curso: Full Stack NodeJS - Comision 24123
+Profesor: Fernando Lucena
+Descripcion: este archivo CSS contiene los estilos para el sitio web del Instituto Luminova
+*/
+
+/* Reglas universales */
+
+:root {
+    --color-primario: rgb(43, 139, 223);
+    --color-secundario: #e91e63;
+    --color-terciario: #303030;
+    --color-cuaternario: #f2f2f2;
+    --color-slide: rgba(255, 255, 255, 0.5);
+    --color-nav: #0B3D91;
+    --bg-oscuro: #171717;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 1em;
+    height: .5em;
+}
+
+/* Carril del scroll */
+::-webkit-scrollbar-track {
+    background-color: var(--color-terciario);
+}
+
+/* Almohadilla del scroll */
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-primario);
+    border-radius: 5em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Roboto Slab", serif;
+}
+
+body {
+    min-height: 100vh;
+    /*estos espacios hacen que no se superponga con el próximo bloque, asi queda flotando*/
+    background-color: var(--color-terciario);
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin-top: 9em;
+    height: auto;
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+/************************* Navbar **************************/
+
+.header {
+    background-color: var(--color-nav);
+    height: 14vh;
+    /*altura fija de la barra de navegación*/
+    width: 100vw;
+    /*ancho, 100% de la pagina*/
+    position: fixed;
+    /*barra de navegación fija=fixed arriba, queda como flotando*/
+    top: 0;
+    /*siempre va a estar fijada a la ventana donde nos encontremos en la punta izquierda*/
+    left: 0;
+    z-index: 1;
+}
+
+.nav {
+    display: flex;
+    /*así hago que se separen los bloques del menu por un lado el logo y por el otro el menu*/
+    justify-content: space-between;
+    /*acá les digo que tengan espacio entre ellos*/
+    max-width: 1100px;
+    /*es un breakpoint para que no se alargue a toda la pantalla el menu y quede mas centrado en paginas anchas*/
+    margin: 0 auto;
+
+}
+
+/*estilos a todos los links*/
+.nav-link {
+    color: var(--color-cuaternario);
+    text-decoration: none;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+}
+
+.nav .nav-link img {
+    height: 10vh;
+    margin-top: 0.8rem;
+
+}
+
+/*formato del estilo de la caja del menu*/
+.nav-menu {
+    display: flex;
+    /*así hago todos los elementos del elemento del menú queden en fila, en forma horizontal por defecto*/
+    margin-right: 1rem;
+    list-style: none;
+    /*elimino los puntos de la lista*/
+
+}
+
+/*formato del estilo del link del menu*/
+.nav-menu-item {
+    font-size: 1rem;
+    line-height: 15vh;
+    text-transform: uppercase;
+    /*todo el texto en mayúscula*/
+    width: max-content;
+    /*para que no corte el texto de lo que tenga el link, porque si son dos palabras elimina una al achicarlo*/
+    margin: 0 0.6rem;
+    /*el espacio entre cada palabra del menu*/
+}
+
+.nav-menu-link {
+    padding: .5rem .7rem;
+    transition: all .7s ease;
+}
+
+.nav-menu-item.dropdown {
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 73px;
+    background-color: var(--color-primario);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    min-width: 160px;
+    z-index: 1;
+    opacity: 0;
+    transition: all .7s ease;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
+    font-size: .8em;
+    color: var(--color-cuaternario);
+    height: 3em;
+    padding: 12px 16px;
+    line-height: 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all .3s ease;
+}
+
+.dropdown-content li a i {
+    margin-right: 5px;
+}
+
+.nav-menu-link:hover {
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: var(--color-primario);
+}
+
+.dropdown-content a:hover {
+    color: var(--color-nav);
+    font-weight: 700;
+}
+
+/*estilos del boton hamburguesa*/
+.nav-toggle {
+    color: var(--color-cuaternario);
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    padding: 0 1.2rem;
+    line-height: 10vh;
+    cursor: pointer;
+    display: none;
+    /*para que no se vea en dispositivios grandes*/
+}
+
+/************************* Main **************************/
+/* Estilos para el contenedor del formulario */
+#formulario-container {
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 700px;
+    /* Cambiado a max-width para hacerlo sensible */
+    margin: 0 auto;
+    margin-bottom: 2em;
+    background-color: #f2f2f298;
+}
+
+/* Estilos para el título del formulario */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    /* Agregado margen inferior para separar del formulario */
+    color: var(--color-cuaternario);
+    font-size: 2em;
+}
+
+/* Estilos para los elementos del formulario */
+label {
+    display: block;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    /* Ajuste para compensar el padding */
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid var(--bg-oscuro);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Estilos específicos para algunos campos */
+#nombre,
+#apellido,
+#emails {
+    padding: 8px;
+    border: 1px solid var(--bg-oscuro);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.actividades h3 {
+    font-weight: 700;
+}
+
+.conocimientos-container h4 {
+    color: var(--color-nav);
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+/* Estilos para alinear los elementos de actividades horizontalmente */
+.sector {
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-nav);
+}
+
+.sector:last-child {
+    border-bottom: red;
+}
+
+.sector input[type="checkbox"],
+.sector label {
+    display: inline-block;
+    margin-right: 5px;
+    /* Ajusta el espacio entre los checkboxes y sus etiquetas según sea necesario */
+}
+
+.conocimientos-container {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+/* estilos boton formulario */
+.boton {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--color-primario);
+    /* Cambia el color de fondo según tu preferencia */
+    color: var(--color-cuaternario);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+    background-color: #0056b3;
+    /* Cambia el color de fondo al pasar el mouse */
+}
+
+.hidden {
+    display: none;
+}
+
+/************************* Modal Avisos **************************/
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: var(--color-cuaternario);
+    border-radius: 10px;
+    margin: 15% auto;
+    padding: 5px 15px;
+    width: 30%;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content p {
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.error {
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    color: red;
+    font-size: 90px;
+    border: 5px solid red;
+    border-radius: 50%;
+}
+
+.succes {    
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    color: green;
+    font-size: 90px;
+    border: 5px solid green;
+    border-radius: 50%;
+}
+
+.close {
+    color: #656565;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--color-nav);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/************************************************** Footer *************************************************/
+#footer-content {
+    width: 100%;
+    background-color: var(--color-terciario);
+}
+
+.footer-container {
+    display: flex;
+    flex-flow: column nowrap;
+
+    width: 100%;
+    gap: 2em;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+
+    padding: 1.5em;
+    background-color: var(--bg-oscuro);
+}
+
+.attention-info h5 {
+    font-size: 1.3em;
+}
+
+.logo-link {
+    margin-left: 5em;
+}
+
+.logo-link a img {
+    width: 12em;
+    border-radius: 50%;
+}
+
+.address-info a,
+.attention-info {
+    display: flex;
+    flex-direction: row;
+    gap: .6em;
+    font-size: 1em;
+
+    text-decoration: none;
+    color: var(--color-primario);
+}
+
+.attention-info {
+    height: 5em;
+}
+
+.address-info-p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.address-info i,
+.attention-info i {
+    font-size: 2em;
+}
+
+.copy-footer {
+    text-align: center;
+    color: var(--color-cuaternario);
+    padding: .5em;
+}
+
+.footer-pages {
+    position: relative;
+    top: 0em;
+}
+
+/***************************************** Media Queries ********************************************/
+@media (max-width: 767px) {
+    main {
+        top: 1em;
+    }
+
+    footer {
+        top: 1em;
+    }
+
+    /************************ Navbar *********/
+    .header {
+        width: 100vw;
+        height: 10vh;
+        padding-left: 1rem;
+    }
+
+    .nav .nav-link img {
+        height: 7vh;
+        margin-top: 0.5rem;
+    }
+
+    /*formato del estilo de la caja del menu*/
+    .nav-menu {
+        flex-direction: column;
+        /*ya esta en flex, pero es automatico que sea horizontal, asi le digo en columna;*/
+        align-items: center;
+        background-color: var(--color-nav);
+        position: fixed;
+        margin-top: 1em;
+        /*la posicion depende de la ventana donde se encuentra*/
+        left: 0;
+        top: 2vh;
+        /*con respecto al nav*/
+        width: 100%;
+        padding: 1rem 0;
+        height: calc(100%-1rem);
+        /*es un calculo para que se adapte a la ventana y que haya un scroll en el caso que el dispositivo sea muy chico*/
+        overflow-y: auto;
+        /*para que agregue la barra al costado cuando la necesite sino no*/
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    /*formato del estilo del link del menu*/
+    .nav-menu-item {
+        line-height: 6vh;
+    }
+
+    .nav-menu-link:hover {
+        /*para cuando esta activo quede con ese color el link*/
+        background: var(--color-primario);
+    }
+
+    .nav-toggle {
+        display: block;
+        /*para que aparezca la hamburguesa*/
+    }
+
+    .nav-menu_visible {
+        left: 0;
+        top: 7vh;
+    }
+
+    /*********************************** Footer ***************************************/
+    #footer-content {
+        width: 100%;
+        background-color: var(--color-terciario);
+    }
+
+    .footer-access {
+        display: flex;
+        flex-direction: row wrap;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: .5em;
+        padding: 1em;
+        gap: 1.5em;
+    }
+
+    .footer-link a {
+        gap: 1;
+        padding: 1em;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        align-items: self-start;
+        gap: 1.5em;
+
+        padding: 1.5em;
+    }
+
+    .logo-link {
+        margin: 0em auto;
+    }
+
+    .address-info a,
+    .attention-info {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 883px) {
+    main {
+        position: relative;
+        top: 1em;
+    }
+
+    footer {
+        top: 1em;
+    }
+
+    /************************ Navbar *********/
+    .header {
+        width: 100vw;
+        height: 10vh;
+        padding-left: 1rem;
+    }
+
+    .nav .nav-link img {
+        height: 7vh;
+        margin-top: 0.5rem;
+    }
+
+    /*formato del estilo de la caja del menu*/
+    .nav-menu {
+        flex-direction: column;
+        /*ya esta en flex, pero es automatico que sea horizontal, asi le digo en columna;*/
+        align-items: center;
+        background-color: var(--color-nav);
+        position: fixed;
+        margin-top: 1em;
+        /*la posicion depende de la ventana donde se encuentra*/
+        left: 0;
+        top: 2vh;
+        /*con respecto al nav*/
+        width: 100%;
+        padding: 1rem 0;
+        height: calc(100%-1rem);
+        /*es un calculo para que se adapte a la ventana y que haya un scroll en el caso que el dispositivo sea muy chico*/
+        overflow-y: auto;
+        /*para que agregue la barra al costado cuando la necesite sino no*/
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    /*formato del estilo del link del menu*/
+    .nav-menu-item {
+        line-height: 6vh;
+    }
+
+    .nav-menu-link:hover {
+        /*para cuando esta activo quede con ese color el link*/
+        background: var(--color-primario);
+
+    }
+
+    .nav-toggle {
+        display: block;
+        /*para que aparezca la hamburguesa*/
+    }
+
+    .nav-menu_visible {
+        left: 0;
+        top: 7vh;
+    }
+
+    .error {
+        color: red;
+        font-size: 0.8em;
+    }
+    
+
+    /*********************************** Footer ***************************************/
+    .footer-info {
+        gap: 2em;
+    }
+
+    .logo-link {
+        margin-left: 0em;
+    }
+
+    .logo-link img {
+        width: 15em;
+    }
+
+    .attention-info {
+        height: 7em;
+        margin-bottom: .5em;
+    }
+
+    .copy-footer {
+        font-size: 1.1em;
+        padding: .5em;
+    }
+}

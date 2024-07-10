@@ -1,0 +1,794 @@
+/*
+Autores: Agustina Velazquez
+         Andreina Romero
+         Eleonora Roux
+         Vilma Ponce
+Fecha: 24/06/2024
+Curso: Full Stack NodeJS - Comision 24123
+Profesor: Fernando Lucena
+Descripcion: este archivo CSS contiene los estilos para el sitio web del Instituto Luminova
+*/
+
+/* Reglas universales */
+
+:root {
+    --color-primario: rgb(43, 139, 223);
+    --color-secundario: #e91e63;
+    --color-terciario: #303030;
+    --color-cuaternario: #f2f2f2;
+    --color-slide: rgba(255, 255, 255, 0.5);
+    --color-nav: #0B3D91;
+    --bg-oscuro: #171717;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 1em;
+    height: .5em;
+}
+
+/* Carril del scroll */
+::-webkit-scrollbar-track {
+    background-color: var(--color-terciario);
+}
+
+/* Almohadilla del scroll */
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-primario);
+    border-radius: 5em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Roboto Slab", serif;
+}
+
+body {
+    min-height: 100vh;
+    padding: 5.4em 0 0;
+    /*estos espacios hacen que no se superponga con el próximo bloque, asi queda flotando*/
+    background-color: var(--color-cuaternario);
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    height: auto;
+    flex: 1;
+    margin-top: 2.6em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/************************* Navbar **************************/
+
+.header {
+    background-color: var(--color-nav);
+    height: 14vh;
+    /*altura fija de la barra de navegación*/
+    width: 100vw;
+    /*ancho, 100% de la pagina*/
+    position: fixed;
+    /*barra de navegación fija=fixed arriba, queda como flotando*/
+    top: 0;
+    /*siempre va a estar fijada a la ventana donde nos encontremos en la punta izquierda*/
+    left: 0;
+    z-index: 1;
+}
+
+.nav {
+    display: flex;
+    /*así hago que se separen los bloques del menu por un lado el logo y por el otro el menu*/
+    justify-content: space-between;
+    /*acá les digo que tengan espacio entre ellos*/
+    max-width: 1100px;
+    /*es un breakpoint para que no se alargue a toda la pantalla el menu y quede mas centrado en paginas anchas*/
+    margin: 0 auto;
+
+}
+
+/*estilos a todos los links*/
+.nav-link {
+    color: var(--color-cuaternario);
+    text-decoration: none;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+}
+
+.nav .nav-link img {
+    height: 10vh;
+    margin-top: 0.8rem;
+
+}
+
+/*formato del estilo de la caja del menu*/
+.nav-menu {
+    display: flex;
+    /*así hago todos los elementos del elemento del menú queden en fila, en forma horizontal por defecto*/
+    margin-right: 1rem;
+    list-style: none;
+    /*elimino los puntos de la lista*/
+}
+
+/*formato del estilo del link del menu*/
+.nav-menu-item {
+    font-size: 1rem;
+    line-height: 15vh;
+    text-transform: uppercase;
+    /*todo el texto en mayúscula*/
+    width: max-content;
+    /*para que no corte el texto de lo que tenga el link, porque si son dos palabras elimina una al achicarlo*/
+    margin: 0 .6rem;
+    /*el espacio entre cada palabra del menu*/
+}
+
+.nav-menu-link {
+    padding: .5rem .7rem;
+    transition: all .7s ease;
+}
+
+.nav-menu-item.dropdown {
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 80px;
+    background-color: var(--color-primario);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: max-content;
+    z-index: 1;
+    opacity: 0;
+    transition: all .7s ease;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
+    font-size: .8em;
+    color: var(--color-cuaternario);
+    height: 3em;
+    padding: 12px 16px;
+    line-height: 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all .3s ease;
+}
+
+.nav-menu-link:hover {
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: var(--color-primario);
+}
+
+.dropdown-content a:hover {
+    color: var(--color-nav);
+    font-weight: 700;
+}
+
+/*estilos del boton hamburguesa*/
+.nav-toggle {
+    color: var(--color-cuaternario);
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    padding: 0 1.2rem;
+    line-height: 10vh;
+    cursor: pointer;
+    display: none;
+    /*para que no se vea en dispositivios grandes*/
+
+}
+
+/************************************************** Main *************************************************/
+main {
+    display: flex;
+}
+
+.main-container {
+    flex-grow: 1;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+aside {
+    width: 280px;
+    padding: 20px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-right: 1px solid var(--color-nav);
+}
+
+aside .user-info {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+aside .user-info img {
+    width: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--color-nav);
+}
+
+aside .user-info h2 {
+    margin-top: 15px;
+}
+
+aside ul.nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+aside .nav li {
+    margin-bottom: 10px;
+}
+
+aside .nav a {
+    text-decoration: none;
+    color: var(--bg-oscuro);
+    font-weight: 700;
+    padding: 10px;
+    display: block;
+    border-bottom: 1px solid var(--bg-oscuro);
+}
+
+aside .nav a.active {
+    color: var(--color-secundario);
+}
+
+.section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    overflow-y: scroll;
+}
+
+.hidden {
+    display: none;
+}
+
+.section .section-title {
+    font-size: 30px;
+    color: var(--color-nav);
+}
+
+.section .section-info {
+    margin-top: 25px;
+}
+
+table {
+    width: 50vw;
+    padding: 10px 5px;
+}
+
+.table-title {
+    padding: 15px;
+    color: var(--color-secundario);
+    text-transform: uppercase;
+    text-align: start;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.table-section-title {
+    width: 25%;
+    font-weight: 500;
+}
+
+.table-section .description {
+    font-weight: 700;
+}
+
+.btn {
+    background-color: var(--color-primario);
+    color: var(--color-cuaternario);
+    margin: 25px 0;
+    padding: 10px 50px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-family: "Nunito", sans-serif;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    cursor: pointer;
+}
+/************************* TABLA DE INSCRIPCIONES **************************/
+/* Estilos para la tabla */
+.tabla-inscripciones {
+    opacity: 0;
+    /* Ancho y alto de la tabla */
+    width: 75%;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tabla-inscripciones thead tr th {
+    padding: 15px;
+    /* Fondo y texto */
+    background-color: var(--color-nav);
+    outline: none;
+    color: var(--color-cuaternario);
+    font-weight: bold;
+}
+
+/* Estilos para las celdas */
+.tabla-inscripciones tbody th {
+    height: 50px;
+    padding: 5px;
+    border: 1px solid var(--color-nav);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.btn-inscripcion {
+    background-color: var(--color-primario);
+    color: var(--color-cuaternario);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-family: "Nunito", sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-inscripcion:hover {
+    background-color: var(--color-nav);
+}
+
+#sin-inscripcion-aviso {
+    display: none;
+}
+
+/************************* TABLA DE CAMBIO DE DATOS **************************/
+.alumno-info-update {
+    width: 80%;
+    padding: 10px 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.alumno-info-update .inputLabel {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+    gap: 15px;
+}
+
+.alumno-info-update .alumno-info-disabled {
+    margin: 0 15px;
+    padding: 10px 0;
+    border-bottom: var(--color-nav) 1px solid;
+}
+
+.alumno-info-update .alumno-info-disabled .inputLabel {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+}
+
+.alumno-info-update .alumno-info-disabled span {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.alumno-info-update .alumno-info-disabled .inputLabel .inputBox {
+    width: 33%;
+}
+
+.alumno-info-update .inputLabel .inputBox input {
+    height: 30px;
+    border: 2px solid var(--color-nav);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.alumno-info-update .alumno-info-disabled .inputLabel:first-child .inputBox input {
+    border: none;
+    border-bottom: 1px solid var(--color-nav);
+    border-radius: 0;
+}
+
+.alumno-info-update input {
+    padding: 5px;
+    font-family: "Nunito", sans-serif;
+    font-size: medium;
+}
+
+.alumno-info-update .alumno-info-input {
+    padding: 10px 15px;
+}
+
+.alumno-info-input h4 {
+    color: var(--color-nav);
+}
+
+.alumno-info-update .alumno-info-input .inputLabel .inputBox {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.alumno-info-update .alumno-info-input .inputLabel .inputBox input {
+    width: 70%;
+}
+
+/************************* Modal Avisos **************************/
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: var(--color-cuaternario);
+    border-radius: 10px;
+    margin: 15% auto;
+    padding: 5px 15px;
+    width: 30%;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content p {
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.error {
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    color: red;
+    font-size: 90px;
+    border: 5px solid red;
+    border-radius: 50%;
+}
+
+.succes {    
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    color: green;
+    font-size: 90px;
+    border: 5px solid green;
+    border-radius: 50%;
+}
+
+.close {
+    color: #656565;
+    align-self: flex-end;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--color-nav);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/************************************************** Footer *************************************************/
+#footer-content {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-terciario);
+}
+
+.footer-container {
+    display: flex;
+    flex-flow: column nowrap;
+
+    width: 100%;
+    gap: 2em;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+
+    padding: 1.5em;
+    background-color: var(--bg-oscuro);
+}
+
+.attention-info h5 {
+    font-size: 1.3em;
+}
+
+.logo-link {
+    margin-left: 5em;
+}
+
+.logo-link a img {
+    border-radius: 50%;
+    width: 12em;
+}
+
+.address-info a,
+.attention-info {
+    display: flex;
+    flex-direction: row;
+    gap: .6em;
+    font-size: 1em;
+
+    text-decoration: none;
+    color: var(--color-primario);
+}
+
+.attention-info {
+    height: 6em;
+}
+
+.address-info-p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.address-info i,
+.attention-info i {
+    font-size: 2em;
+}
+
+.copy-footer {
+    text-align: center;
+    color: var(--color-cuaternario);
+}
+
+/***************************************** Media Queries ********************************************/
+@media (max-width: 767px) {
+    main {
+        margin-top: -0.5em;
+    }
+
+    .contentLogin .form .inputLabel {
+        flex-direction: column;
+    }
+
+    footer {
+        top: 1em;
+    }
+
+    /************************ Navbar *********/
+    .header {
+        width: 100vw;
+        height: 10vh;
+        padding-left: 1rem;
+    }
+
+    .nav .nav-link img {
+        height: 7vh;
+        margin-top: 0.5rem;
+    }
+
+    /*formato del estilo de la caja del menu*/
+    .nav-menu {
+        flex-direction: column;
+        /*ya esta en flex, pero es automatico que sea horizontal, asi le digo en columna;*/
+        align-items: center;
+        background-color: var(--color-nav);
+        position: fixed;
+        margin-top: 1em;
+        /*la posicion depende de la ventana donde se encuentra*/
+        left: 0;
+        top: 2vh;
+        /*con respecto al nav*/
+        width: 100%;
+        padding: 1rem 0;
+        height: calc(100%-1rem);
+        /*es un calculo para que se adapte a la ventana y que haya un scroll en el caso que el dispositivo sea muy chico*/
+        overflow-y: auto;
+        /*para que agregue la barra al costado cuando la necesite sino no*/
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    /*formato del estilo del link del menu*/
+    .nav-menu-item {
+        line-height: 6vh;
+    }
+
+    .nav-menu-link:hover {
+        /*para cuando esta activo quede con ese color el link*/
+        background: var(--color-primario);
+
+    }
+
+    .nav-toggle {
+        display: block;
+        /*para que aparezca la hamburguesa*/
+    }
+
+    .nav-menu_visible {
+        left: 0;
+        top: 7vh;
+
+    }
+
+    .contentLogin .form .inputBox input[type="date"]~span {
+        opacity: 1;
+    }
+
+    /*********************************** Footer ***************************************/
+    #footer-content {
+        width: 100%;
+        background-color: var(--color-terciario);
+    }
+
+    .footer-access {
+        display: flex;
+        flex-direction: row wrap;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: .5em;
+        padding: 1em;
+        gap: 1.5em;
+    }
+
+    .footer-link a {
+        gap: 1;
+        padding: 1em;
+    }
+
+    .footer-info {
+        flex-direction: column;
+        align-items: self-start;
+        gap: 1.5em;
+
+        padding: 1.5em;
+    }
+
+    .logo-link {
+        margin: 0em auto;
+    }
+
+    .address-info a,
+    .attention-info {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 883px) {
+    main {
+        margin-top: -.2em;
+    }
+
+    /************************ Navbar *********/
+    .header {
+        width: 100vw;
+        height: 10vh;
+        padding-left: 1rem;
+    }
+
+    .nav .nav-link img {
+        height: 7vh;
+        margin-top: 0.5rem;
+    }
+
+    /*formato del estilo de la caja del menu*/
+    .nav-menu {
+        flex-direction: column;
+        /*ya esta en flex, pero es automatico que sea horizontal, asi le digo en columna;*/
+        align-items: center;
+        background-color: var(--color-nav);
+        position: fixed;
+        margin-top: 1em;
+        /*la posicion depende de la ventana donde se encuentra*/
+        left: 0;
+        top: 2vh;
+        /*con respecto al nav*/
+        width: 100%;
+        padding: 1rem 0;
+        height: calc(100%-1rem);
+        /*es un calculo para que se adapte a la ventana y que haya un scroll en el caso que el dispositivo sea muy chico*/
+        overflow-y: auto;
+        /*para que agregue la barra al costado cuando la necesite sino no*/
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    /*formato del estilo del link del menu*/
+    .nav-menu-item {
+        line-height: 6vh;
+    }
+
+    .nav-menu-link:hover {
+        /*para cuando esta activo quede con ese color el link*/
+        background: var(--color-primario);
+
+    }
+
+    .nav-toggle {
+        display: block;
+        /*para que aparezca la hamburguesa*/
+    }
+
+    .nav-menu_visible {
+        left: 0;
+        top: 7vh;
+
+    }
+
+    /*********************************** Footer ***************************************/
+    .footer-info {
+        gap: 2em;
+    }
+
+    .logo-link {
+        margin-left: 0em;
+    }
+
+    .logo-link img {
+        width: 15em;
+    }
+
+    .attention-info {
+        height: 7em;
+        margin-bottom: .5em;
+    }
+
+    .copy-footer {
+        font-size: 1.1em;
+        padding: .5em;
+    }
+}

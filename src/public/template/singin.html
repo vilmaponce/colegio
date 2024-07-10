@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta datos -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pagina escolar del Instituto Luminova">
+    <meta name="keywords" content="escuela, instituto, inicial, primaria, secundario">
+    <meta name="author" content="Agustina Velazquez, Andreina Romero, Eleonora Roux, Vilma Ponce">
+    <title>Ingresar | Instituto Luminova</title>
+    <!-- zona de script FontAwesome -->
+    <script src="https://kit.fontawesome.com/eae8fc4e25.js" crossorigin="anonymous"></script>
+    <!-- zona del favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <!-- zona de estilos -->
+    <link rel="stylesheet" href="../static/css/singin-singup.css">
+    <!-- zona de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Slab:wght@100..900&family=Varela+Round&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <nav class="nav">
+                <a href="../index.html" class="nav-link"><img src="../static/img/navFondo.png" alt=""></a>
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a href="../index.html" class="nav-menu-link nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="../index.html#institucional" class="nav-menu-link nav-link">Niveles</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="../index.html#actividades" class="nav-menu-link nav-link">Actividades</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a id="btnInscripcion2" class="nav-menu-link nav-link">Inscripción</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a href="./contact.html" class="nav-menu-link nav-link">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Login -->
+            <section class="contentLogin signinForm">
+                <form id="loginForm">
+                    <div class="form">
+                        <h2>INICIAR SESIÓN</h2>
+                        <div class="inputBox">
+                            <input type="text" id="user" name="user" placeholder=" ">
+                            <i class="fa-regular fa-user"></i>
+                            <label for="user">N° de Documento</label>
+                        </div>
+                        <div class="inputLabel">
+                            <div class="input">
+                                <input class="input__field" id="password" type="password" placeholder=" ">
+                                <i class="fa-solid fa-lock"></i>
+                                <label for="password" class="input__label">Contraseña</label>
+                                <div class="eye-icon-wrapper">
+                                    <i class="eye-icon fa-regular fa-eye-slash"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputBox">
+                            <button class="btnForm" id="login-btn">Ingresar</button>
+                        </div>
+                        <p>¿No estás registrado? <a href="./singup.html">CREÁ TU USUARIO!</a></p>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <!-- Modal de alerta si algo sale mal -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <i class="fa-solid fa-xmark close"></i>
+                <i class="fa-solid fa-xmark alerta"></i>
+                <p id="message"></p>
+            </div>
+        </div>
+        <footer>
+            <section id="footer-content" class="footer-pages">
+                <!-- Contacto -->
+                <article class="footer-container">
+                    <div class="footer-info">
+                        <!-- Logo -->
+                        <div class="logo-link">
+                            <a href="../index.html">
+                                <img src="../static/img/navFondo.png" alt="Logo sin fondo">
+                            </a>
+                        </div>
+                        <!-- Dirección -->
+                        <div class="address-info">
+                            <a href="./contact.html">
+                                <i class="fa-solid fa-phone-volume"></i>
+                                <div class="address-info-p">
+                                    <p>Bartolomé Mitre 1234, Florida Oeste.</p>
+                                    <p>Buenos Aires, Argentina</p>
+                                    <p>Tel: 1234-5678</p>
+                                    <p>escuela@correo.com</p>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Horario de Atención -->
+                        <div class="attention-info">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h5>Horario de Administración</h5>
+                                <p>De Lunes a Viernes de 7:30 a 19:00 hs</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Derechos -->
+                <article class="copy-footer">
+                    <p>© 2024 Todos los derechos reservados Grupo 14-Comision 24123</p>
+                </article>
+            </section>
+        </footer>
+    </div>
+    <script src="../static/js/singin.js"></script>
+    <script src="../static/js/navbar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "proy-g-14",
+  "version": "1.0.0",
+  "description": "****PROYECTO INSTITUCION EDUCATIVA**** <br> <br> Este es un proyecto grupal que hemos desarrollado para **Codo a Codo** , utilizando HTML, CSS y JavaScript para crear una pagina web que aborde diversas necesidades de la institución educativa.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql2": "^3.10.1"
+  }
+}

@@ -1,0 +1,628 @@
+/*
+Autores: Agustina Velazquez
+         Andreina Romero
+         Eleonora Roux
+         Vilma Ponce
+Fecha: 19/03/2024
+Curso: Full Stack NodeJS - Comision 24123
+Profesor: Fernando Lucena
+Descripcion: este archivo CSS contiene los estilos para el sitio web del Instituto Luminova
+*/
+
+/* Reglas universales */
+
+:root {
+    --color-primario: rgb(43, 139, 223);
+    --color-secundario: #e91e63;
+    --color-terciario: #303030;
+    --color-cuaternario: #f2f2f2;
+    --color-slide: rgba(255, 255, 255, 0.5);
+    --color-nav: #0B3D91;
+    --bg-oscuro: #171717;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 1em;
+    height: .5em;
+}
+
+/* Carril del scroll */
+::-webkit-scrollbar-track {
+    background-color: var(--color-terciario);
+}
+
+/* Almohadilla del scroll */
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-primario);
+    border-radius: 5em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Roboto Slab", serif;
+}
+
+body {
+    height: 100vh;
+    padding: 5.4em 0 0;
+    /*estos espacios hacen que no se superponga con el próximo bloque, asi queda flotando*/
+    background-color: var(--color-cuaternario);
+    font-family: "Nunito", sans-serif;
+}
+
+/************************* Navbar **************************/
+
+.header {
+    background-color: var(--color-nav);
+    height: 14vh;
+    /*altura fija de la barra de navegación*/
+    width: 100vw;
+    /*ancho, 100% de la pagina*/
+    position: fixed;
+    /*barra de navegación fija=fixed arriba, queda como flotando*/
+    top: 0;
+    /*siempre va a estar fijada a la ventana donde nos encontremos en la punta izquierda*/
+    left: 0;
+    z-index: 1;
+}
+
+.nav {
+    display: flex;
+    /*así hago que se separen los bloques del menu por un lado el logo y por el otro el menu*/
+    justify-content: space-between;
+    /*acá les digo que tengan espacio entre ellos*/
+    max-width: 1100px;
+    /*es un breakpoint para que no se alargue a toda la pantalla el menu y quede mas centrado en paginas anchas*/
+    margin: 0 auto;
+
+}
+
+/*estilos a todos los links*/
+.nav-link {
+    color: var(--color-cuaternario);
+    text-decoration: none;
+    text-align: center;
+    font-family: "Nunito", sans-serif;
+}
+
+.nav .nav-link img {
+    height: 10vh;
+    margin-top: 0.8rem;
+
+}
+
+/*formato del estilo de la caja del menu*/
+.nav-menu {
+    display: flex;
+    /*así hago todos los elementos del elemento del menú queden en fila, en forma horizontal por defecto*/
+    margin-right: 1rem;
+    list-style: none;
+    /*elimino los puntos de la lista*/
+
+}
+
+/*formato del estilo del link del menu*/
+.nav-menu-item {
+    font-size: 1rem;
+    line-height: 15vh;
+    text-transform: uppercase;
+    /*todo el texto en mayúscula*/
+    width: max-content;
+    /*para que no corte el texto de lo que tenga el link, porque si son dos palabras elimina una al achicarlo*/
+    margin: 0 0.6rem;
+    /*el espacio entre cada palabra del menu*/
+}
+
+.nav-menu-link {
+    padding: .5rem .7rem;
+    transition: all .7s ease;
+}
+
+.nav-menu-item.dropdown {
+    position: relative;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 73px;
+    background-color: var(--color-primario);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    min-width: 160px;
+    z-index: 1;
+    opacity: 0;
+    transition: all .7s ease;
+}
+
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content a {
+    font-size: .8em;
+    color: var(--color-cuaternario);
+    height: 3em;
+    padding: 12px 16px;
+    line-height: 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: all .3s ease;
+}
+
+.dropdown-content li a i {
+    margin-right: 5px;
+}
+
+.nav-menu-link:hover {
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: var(--color-primario);
+}
+
+.dropdown-content a:hover {
+    color: var(--color-nav);
+    font-weight: 700;
+}
+
+/*estilos del boton hamburguesa*/
+.nav-toggle {
+    color: var(--color-cuaternario);
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    padding: 0 1.2rem;
+    line-height: 10vh;
+    cursor: pointer;
+    display: none;
+    /*para que no se vea en dispositivios grandes*/
+
+}
+
+/********************************** Main ***************************************/
+video {
+    position: absolute;
+    top: 8em;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.title {
+    margin-bottom: 2.5em;
+    font-size: 3.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-cuaternario);
+    justify-content: center;
+}
+
+.title1 {
+    color: var(--bg-oscuro);
+    font-size: 3em;
+}
+
+.subtitle {
+    color: var(--color-cuaternario);
+}
+
+.encabezado {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sau {
+    margin-top: 2.5em;
+    height: auto;
+    padding: 2.2em 0;
+    background: var(--color-terciario);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .2);
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.box-container .box {
+    height: 16em;
+    width: 28em;
+    background: var(--bg-oscuro);
+    text-align: center;
+    border-radius: 1.25em;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .3);
+    margin: 1.8em;
+    padding: 1em;
+}
+
+.box-container .box h3 {
+    font-size: 1.25em;
+    color: var(--color-cuaternario);
+}
+
+.box-container .box p {
+    padding: 0 .9em;
+    font-size: 1em;
+    color: var(--color-cuaternario);
+
+}
+
+.box-container img {
+    width: 55%;
+    border-radius: .5em;
+}
+
+/**NOTICIAS DESPLEGABLES**/
+
+.noticiasInfo {
+    background-color: var(--color-cuaternario);
+    text-align: center;
+}
+
+.noticiasInfo .title1 {
+    margin: 1em;
+    color: var(--color-nav);
+}
+
+.espacios {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.espacio {
+    width: 80vw;
+    margin: 0 auto;
+    flex: 1;
+    padding: 20px;
+    border: none;
+}
+
+details {
+    margin-bottom: 80px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+summary {
+    cursor: pointer;
+    outline: none;
+    font-size: 30px;
+    color: var(--color-nav);
+    background: var(--color-cuaternario);
+}
+
+.espacios .espacio-content {
+    display: flex;
+    flex-direction: row;
+    padding: 1em 2em;
+}
+
+.espacio-content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.espacio-content h2 {
+    font-size: 1.4em;
+    margin: .7em 0;
+}
+
+.espacio-content p {
+    font-size: 1.1em;
+    padding: 0 2em;
+    text-align: justify;
+}
+
+.espacio img {
+    border-radius: 1em;
+    width: 50%;
+}
+
+/* ESPACIO DE NOSOTROS PARA DIRECTORES */
+.box-container2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box-container2 .box {
+    width: 18em;
+    margin: 1.25em;
+    padding-bottom: 3.1em;
+    text-align: center;
+    background: var(--bg-oscuro);
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, .5);
+    border-radius: .7em;
+}
+
+.box-container2 .box img {
+    height: 11em;
+    width: 8em;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: 50px;
+    border: .2em solid var(--color-secundario);
+}
+
+.box-container2 .box h3 {
+    font-size: 20px;
+    color: var(--color-secundario);
+    padding-top: 10px;
+}
+
+.box-container2 .box p {
+    font-size: 18px;
+    color: var(--color-cuaternario);
+    padding: 0;
+}
+
+.box-container2 .box .stars i {
+    font-size: 15px;
+    color: var(--color-secundario);
+}
+
+/************************************************************** Footer **************************/
+#footer-content {
+    width: 100%;
+    background-color: var(--color-terciario);
+}
+
+.footer-container {
+    display: flex;
+    flex-flow: column nowrap;
+
+    width: 100%;
+    gap: 2em;
+}
+
+.copy-footer {
+    text-align: center;
+    color: var(--color-cuaternario);
+    height: auto;
+    padding: .3em;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+
+    padding: 1.5em;
+    background-color: var(--bg-oscuro);
+}
+
+.logo-link {
+    margin-left: 5em;
+}
+
+.logo-link a img {
+    width: 12em;
+    border-radius: 50%;
+}
+
+.address-info a,
+.attention-info {
+    display: flex;
+    flex-direction: row;
+    gap: .6em;
+    font-size: 1em;
+
+    text-decoration: none;
+    color: var(--color-primario);
+}
+
+.address-info i,
+.attention-info i {
+    font-size: 2em;
+}
+
+.address-info-p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.attention-info {
+    height: 6em;
+}
+
+.attention-info h5 {
+    font-size: 1.3em;
+}
+
+@media (max-width:768px) {
+
+    /************************ Navbar *********/
+    .header {
+        width: 100vw;
+        height: 10vh;
+        padding-left: 1rem;
+    }
+
+    .nav .nav-link img {
+        height: 7vh;
+        margin-top: 0.5rem;
+    }
+
+    /*formato del estilo de la caja del menu*/
+    .nav-menu {
+        flex-direction: column;
+        /*ya esta en flex, pero es automatico que sea horizontal, asi le digo en columna;*/
+        align-items: center;
+        background-color: var(--color-nav);
+        position: fixed;
+        margin-top: 1em;
+        /*la posicion depende de la ventana donde se encuentra*/
+        left: 0;
+        top: 2vh;
+        /*con respecto al nav*/
+        width: 100%;
+        padding: 1rem 0;
+        height: calc(100%-1rem);
+        /*es un calculo para que se adapte a la ventana y que haya un scroll en el caso que el dispositivo sea muy chico*/
+        overflow-y: auto;
+        /*para que agregue la barra al costado cuando la necesite sino no*/
+        left: 100%;
+        transition: left 0.3s;
+    }
+
+    /*formato del estilo del link del menu*/
+    .nav-menu-item {
+        line-height: 6vh;
+    }
+
+    .nav-menu-link:hover {
+        /*para cuando esta activo quede con ese color el link*/
+        background: var(--color-primario);
+
+    }
+
+    .nav-toggle {
+        display: block;
+        /*para que aparezca la hamburguesa*/
+    }
+
+    .nav-menu_visible {
+        left: 0;
+        top: 7vh;
+
+    }
+
+    /************* Main *******************************************/
+    video {
+        top: 5.4em;
+        width: 100vw;
+    }
+
+    .contenedor-acordeon {
+        width: 100vw;
+    }
+
+    .title {
+        margin-bottom: .5em;
+        font-size: 2.5em;
+    }
+
+    .sau {
+        margin: 0;
+    }
+
+    .espacios .espacio-content {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+
+    .espacio img {
+        width: 80%;
+        align-self: center;
+        margin: .8em 0;
+    }
+
+    .about {
+        height: 100vh;
+        padding: 50px 0;
+
+    }
+
+    /************************************ Footer *****************************/
+    .footer-container {
+        padding: 0em;
+        width: 100vw;
+    }
+
+    .footer-access {
+        display: inline-block;
+        padding: .5em;
+    }
+
+    .footer-link h4 {
+        font-size: 1.5em;
+    }
+
+    .footer-link a {
+        margin: .8em auto;
+    }
+
+    .footer-link a i {
+        font-size: 4em;
+    }
+
+    .footer-info {
+        display: inline-block;
+        color: var(--color-primario);
+    }
+
+    .logo-link {
+        margin: 1em auto;
+        text-align: center;
+    }
+
+    .logo-link img {
+        width: 18em;
+    }
+
+    .address-info,
+    .attention-info {
+        gap: 1em;
+        font-size: 1.1em;
+        margin: 1em auto;
+    }
+
+    .address-info i,
+    .attention-info i {
+        font-size: 2.5em;
+    }
+
+    .footer-info h5 {
+        font-size: 1.3em;
+    }
+
+    .attention-info {
+        height: auto;
+    }
+
+    .copy-footer {
+        text-align: center;
+        font-weight: normal;
+        font-size: .9em;
+        padding-bottom: 1em;
+    }
+}
