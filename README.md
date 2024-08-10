@@ -7,7 +7,7 @@
 
 https://github.com/user-attachments/assets/530568ab-fd4e-472f-8a4a-b14e9cd8e281
 
-Proyecto grupal que hemos desarrollado para **Codo a Codo** , utilizando HTML, CSS y JavaScript para crear una pagina web que aborde diversas necesidades de la institución educativa.
+Proyecto grupal que hemos desarrollado para **Codo a Codo** , utilizando HTML, CSS y JavaScript , NodeJs con express, Bootstrap,SQL para crear una pagina web que aborde diversas necesidades de la institución educativa.
 
 *Descripción del Proyecto*
 <br>
